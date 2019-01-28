@@ -1,0 +1,22 @@
+.list-item {
+    border-bottom: 1px black dashed;
+    height: 34px;
+}
+
+.fixed-width {
+    width: 170px;
+}
+
+.list-item-right {
+    text-align: right;
+    width: 60px;
+}
+
+.list-item-left {
+    text-align: left;
+}
+
+.aligned {
+    vertical-align: middle;
+}
+

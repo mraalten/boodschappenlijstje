@@ -1,0 +1,13 @@
+<div class="lijst-content">
+  <div *ngIf="items.length == 0">
+    Geen boodschappen
+  </div>
+
+  <div *ngIf="items.length > 0">
+    <table width="100%">
+      <div *ngFor="let item of items">
+        <boodschappenlijst-item [item]="item"></boodschappenlijst-item>
+      </div>
+    </table>
+  </div>
+</div>

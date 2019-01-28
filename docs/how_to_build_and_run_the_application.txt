@@ -1,0 +1,22 @@
+APPLICATION SETUP:
+
+Application consists of Rest-backend and Angular front-end, all in one project directory (main dir).
+
+----------------------------------------------------------------
+Build application:
+----------------------------------------------------------------
+- run build-and-start-application.sh script from base-directory
+- when finished application is available at:
+    http://localhost:8083/index.html
+
+  Rest-endpoint available at:
+
+-----------------------------------
+Change port-number for application
+-----------------------------------
+Change port number in application.yml
+
+-----------------------------------
+Development:
+-----------------------------------
+- start 'ng serve' from src/client directory

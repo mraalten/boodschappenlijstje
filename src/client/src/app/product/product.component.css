@@ -1,0 +1,41 @@
+.produkt-item {
+    display: inline-block;
+    margin-left: 15px;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 25px;
+    background: #FCFCFC;
+    padding: 20px;
+    width: 140px;
+    height: 140px;
+}
+
+.produkt-image {
+    /*width:  86px;*/
+    height: 100px;
+}
+
+.produktgroep-item-text {
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 8px;
+    background: #95D7ED;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    height: 40px;
+}
+
+.text-centered {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.edit-image {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    left: -5px;
+}
+

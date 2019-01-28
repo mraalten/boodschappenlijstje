@@ -1,0 +1,6 @@
+Create new component:
+
+ng generate component <<component_name>> --prefix false
+
+in directory where e2e folder resides.
+--prefix is om te voorkomen dat de selector begint met 'app-'

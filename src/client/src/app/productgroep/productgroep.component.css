@@ -1,0 +1,15 @@
+.image {
+    width:  86px;
+    height: 100px;
+}
+
+.item-text {
+    text-align: center;
+    border-radius: 25px;
+    margin-top: 8px;
+    background: #95D7ED;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    height: 40px;
+}

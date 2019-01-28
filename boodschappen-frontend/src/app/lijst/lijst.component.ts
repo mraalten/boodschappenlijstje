@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Item} from "../domain/item";
 
 @Component({
-  selector: 'lijst',
-  templateUrl: './lijst.component.html',
-  styleUrls: ['./lijst.component.css']
+    selector: 'lijst',
+    templateUrl: './lijst.component.html',
+    styleUrls: ['./lijst.component.css']
 })
 export class LijstComponent implements OnInit {
 
-  constructor() { }
+    @Input() items: Item[];
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }
