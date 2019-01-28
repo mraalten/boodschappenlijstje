@@ -20,8 +20,8 @@ import { ProductKnoppenComponent } from './product-knoppen/product-knoppen.compo
 
 const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
-    { path: 'home', component: BoodschappenlijstProductgroepenComponent},
-    { path: 'products', component: BoodschappenlijstProductenComponent}
+    { path: 'home', component: ProductgroepenComponent},
+    { path: 'products/:productGroepId', component: ProductenComponent}
 ]
 @NgModule({
   declarations: [
