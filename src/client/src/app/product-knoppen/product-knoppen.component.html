@@ -3,7 +3,9 @@
     <button class="back-button" data-ng-click="terugNaarProduktGroepen()">Terug naar produktgroepen</button>
   </a>
 
-  <button class="toevoegen-produkt-button" data-ng-click="toevoegenNieuwProdukt()">Toevoegen nieuw produkt</button>
+  <a [routerLink] = "['/editproduct']">
+    <button class="toevoegen-produkt-button" data-ng-click="toevoegenNieuwProdukt()">Toevoegen nieuw produkt</button>
+  </a>
 
   <br>
   <br>

@@ -12,16 +12,16 @@ import { BoodschappenlijstKnoppenComponent } from './boodschappenlijst-knoppen/b
 import { BoodschappenlijstItemsComponent } from './boodschappenlijst-items/boodschappenlijst-items.component';
 import { ProductgroepComponent } from './productgroep/productgroep.component';
 import { BoodschappenlijstItemComponent } from './boodschappenlijst-item/boodschappenlijst-item.component';
-import { BoodschappenlijstProductenComponent } from './boodschappenlijst-producten/boodschappenlijst-producten.component';
 import { ProductenComponent } from './producten/producten.component';
 import { ProductComponent } from './product/product.component';
-import { BoodschappenlijstProductgroepenComponent } from './boodschappenlijst-productgroepen/boodschappenlijst-productgroepen.component';
 import { ProductKnoppenComponent } from './product-knoppen/product-knoppen.component';
+import { ProductMuterenComponent } from './product-muteren/product-muteren.component';
 
 const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
     { path: 'home', component: ProductgroepenComponent},
-    { path: 'products/:productGroepId', component: ProductenComponent}
+    { path: 'products/:productGroepId', component: ProductenComponent},
+    { path: 'editproduct', component: ProductMuterenComponent}
 ]
 @NgModule({
   declarations: [
@@ -33,11 +33,10 @@ const routes : Routes = [
     BoodschappenlijstItemsComponent,
     ProductgroepComponent,
     BoodschappenlijstItemComponent,
-    BoodschappenlijstProductenComponent,
     ProductenComponent,
     ProductComponent,
-    BoodschappenlijstProductgroepenComponent,
-    ProductKnoppenComponent
+    ProductKnoppenComponent,
+    ProductMuterenComponent
   ],
   imports: [
     BrowserModule,
