@@ -8,12 +8,15 @@ import {Product} from "../product";
   styleUrls: ['./boodschappenlijst-items.component.css']
 })
 export class BoodschappenlijstItemsComponent implements OnInit {
+    itemMap = new Map();
     items: BoodschappenlijstItem[];
 
     constructor() {
+        this.itemMap.set(1, new BoodschappenlijstItem(1, new Product(1, 'Sla', 'sla.jpg', 'krop')));
+        this.itemMap.set(2, new BoodschappenlijstItem(2, new Product(2, 'Schwarzwalder Schinken', 'komkommer.jpg', 'stuk')));
         this.items = [
-            new BoodschappenlijstItem(1, new Product(1, 'Sla', 'sla.jpg', 'krop'), 1),
-            new BoodschappenlijstItem(2, new Product(2, 'Schwarzwalder Schinken', 'komkommer.jpg', 'stuk'), 1)
+            new BoodschappenlijstItem(1, new Product(1, 'Sla', 'sla.jpg', 'krop')),
+            new BoodschappenlijstItem(2, new Product(2, 'Schwarzwalder Schinken', 'komkommer.jpg', 'stuk'))
         ];
     }
 
