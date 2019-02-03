@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Product} from "../product";
 import {ActivatedRoute} from "@angular/router";
 
@@ -7,11 +7,12 @@ import {ActivatedRoute} from "@angular/router";
   templateUrl: './producten.component.html',
   styleUrls: ['./producten.component.css']
 })
-export class ProductenComponent implements OnInit {
+export class ProductenComponent {
     selectedProductGroepId: number;
     producten: Product[];
 
     constructor(private route: ActivatedRoute) {
+        this.onProductSelected = new EventEmitter();
         route.params.subscribe(params => {this.selectedProductGroepId = params['productGroepId']})
         console.log(('received productGroepId: ' + this.selectedProductGroepId));
         this.producten = [
@@ -19,7 +20,13 @@ export class ProductenComponent implements OnInit {
             new Product(2, 'Schwarzwalder Schinken', 'schwarzwalder-schinken.jpg', 'stuk')
         ];
     }
-  ngOnInit() {
-  }
+
+    @Output() onProductSelected: EventEmitter<Product>;
+
+    productSelected(product: Product) {
+        console.log('subscribers: ' + this.onProductSelected.observers.toString());
+        this.onProductSelected.emit(product);
+        console.log('In producten: ' + product.naam);
+    }
 
 }

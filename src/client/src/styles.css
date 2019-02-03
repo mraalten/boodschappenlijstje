@@ -8,3 +8,7 @@
     padding: 20px;
     width: 590px;
 }
+
+.columns-side-by-side {
+    display: inline-flex;
+}
