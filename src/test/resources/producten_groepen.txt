@@ -1,0 +1,25 @@
+|  1 | Groenten              | groenten-fruit.jpg |        10 |
+|  2 | Fruit                 | fruit.jpg          |        20 |
+|  3 | Potgroenten           | potgroenten.jpg    |        40 |
+|  4 | Zuivel/boter          | zuivel.jpg         |        79 |
+|  5 | Pastasauzen/pasta     | pasta.jpg          |        77 |
+|  6 | Vlees                 | vlees.png          |        45 |
+|  7 | Vleeswaren            | vleeswaren.jpg     |        50 |
+|  8 | Zuren                 | zuren.jpg          |        75 |
+|  9 | Kaas                  | kaas.jpg           |        55 |
+| 10 | Frisdrank             | frisdranken.jpg    |       100 |
+| 11 | Sappen                | sappen.jpg         |       110 |
+| 12 | Chips                 | chips.jpg          |       120 |
+| 13 | Was/schoonmaakmiddel  | wasmiddel.png      |        80 |
+| 14 | Koek en snoep         | koek-snoep.jpg     |       116 |
+| 15 | Verzorging            | verzorging.jpg     |        85 |
+| 16 | Koffie                | koffie.jpg         |       115 |
+| 17 | Bakprodukten          | bakprodukten.jpg   |        64 |
+| 18 | Broodbeleg            | broodbeleg.jpg     |        65 |
+| 19 | Ontbijt               | ontbijt.jpg        |        60 |
+| 20 | Diepvries             | diepvries.png      |        66 |
+| 21 | Soep                  | soepen.jpg         |        71 |
+| 22 | Vleesconserven        | vleesconserven.jpg |        72 |
+| 23 | Mixen/werelds         | mixen.jpg          |        73 |
+| 24 | Rijst/mie             | rijst.jpg          |        74 |
+| 25 | Sauzen                | sauzen.jpg         |        76 |

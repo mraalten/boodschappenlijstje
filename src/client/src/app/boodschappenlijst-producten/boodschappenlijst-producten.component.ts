@@ -12,7 +12,8 @@ export class BoodschappenlijstProductenComponent {
     }
 
     productWasSelected(product: Product): void {
-        console.log('Top-level: ' + product.naam)
+        //TODO remove
+        // console.log('Top-level: ' + product.naam);
     }
 
 }

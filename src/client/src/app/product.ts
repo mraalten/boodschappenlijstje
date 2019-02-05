@@ -4,7 +4,8 @@ export class Product {
         public id: number,
         public naam: string,
         public imageNaam: string,
-        public eenheid: string
+        public eenheid: string,
+        public productGroepid: number,
     ){}
 
 }
