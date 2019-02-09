@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BoodschappenlijstItem} from "../boodschappenlijstitem";
+import {BoodschappenlijstService} from "../services/boodschappenlijst.service";
 
 @Component({
   selector: 'boodschappenlijst-item',
@@ -11,7 +12,21 @@ export class BoodschappenlijstItemComponent implements OnInit {
 
   @Input() item: BoodschappenlijstItem;
 
-  constructor() { }
+  constructor(
+      private boodschappenLijstService: BoodschappenlijstService
+  ) { }
+
+  decrement(itemId: number) : void {
+    this.boodschappenLijstService.decrement(itemId);
+  }
+
+  increment(itemId: number) : void {
+    this.boodschappenLijstService.increment(itemId);
+  }
+
+  deleteFromList(itemId: number) {
+    this.boodschappenLijstService.deleteFromList(itemId);
+  }
 
   ngOnInit() {
   }

@@ -1,11 +1,11 @@
 <tr class="aligned">
-    <td class="list-item list-item-left"><img src="/assets/images/verwijderen.png" width="25px" height="25px"></td>
+    <td class="list-item list-item-left"><img src="/assets/images/verwijderen.png" width="25px" height="25px" (click)="deleteFromList(item.product.id)"></td>
     <td class="list-item list-item-left fixed-width">{{item.product.naam}}</td>
-    <td class="list-item list-item-right">{{item.aantal}} {{item.product.eenheid}}</td>
+    <td class="list-item list-item-right">{{item.aantal}} {{item.product.eenheid.displayValue}}</td>
     <td class="list-item list-item-right">
-        <img src="/assets/images/minus.png" width="25px" height="25px">
+        <img src="/assets/images/minus.png" width="25px" height="25px" (click)="decrement(item.product.id)">
     </td>
     <td class="list-item list-item-right">
-        <img src="/assets/images/plus.png" width="47px" height="47px"> <br/>
+        <img src="/assets/images/plus.png" width="47px" height="47px" (click)="increment(item.product.id)"> <br/>
     </td>
 </tr>

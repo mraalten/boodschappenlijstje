@@ -20,7 +20,32 @@ export class BoodschappenlijstService {
             alert(product.naam + ' staat al op je lijstje. Gebruik + om het aantal te verhogen');
         } else {
             this.itemMap.set(product.id, new BoodschappenlijstItem(2, product));
-            this.itemListObserver.next();
+            this.informSubscribers();
+        }
+    }
+
+    private informSubscribers() {
+        this.itemListObserver.next();
+    }
+
+    increment(itemId: number) {
+        var item = this.itemMap.get(itemId);
+        item.increment();
+        this.informSubscribers();
+    }
+
+    decrement(itemId: number) {
+        var item = this.itemMap.get(itemId);
+        item.decrement();
+        this.informSubscribers();
+    }
+
+    deleteFromList(itemId: number) {
+        if (this.itemMap.has(itemId)) {
+            this.itemMap.delete(itemId);
+            this.informSubscribers()
+        } else {
+            alert('Het te verwijderen product staat niet (meer) op je lijstje');
         }
     }
 }
