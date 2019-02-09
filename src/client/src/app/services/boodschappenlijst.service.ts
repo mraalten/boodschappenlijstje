@@ -1,7 +1,7 @@
-import {BoodschappenlijstItem} from "./boodschappenlijstitem";
-import {Product} from "./product";
 import {Injectable} from "@angular/core";
 import {Subject} from "rxjs/Subject";
+import {Product} from "../product";
+import {BoodschappenlijstItem} from "../boodschappenlijstitem";
 
 @Injectable()
 export class BoodschappenlijstService {
@@ -9,8 +9,6 @@ export class BoodschappenlijstService {
     itemListObserver = new Subject();
 
     constructor() {
-        this.itemMap.set(1, new BoodschappenlijstItem(1, new Product(1, 'Sla', 'sla.jpg', 'krop', 1)));
-        // this.itemMap.set(2, new BoodschappenlijstItem(2, new Product(2, 'Schwarzwalder Schinken', 'komkommer.jpg', 'stuk')));
     }
 
     getBoodschappenLijstItems(): BoodschappenlijstItem[] {

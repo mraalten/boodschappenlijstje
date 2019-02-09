@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {BoodschappenlijstItem} from "../boodschappenlijstitem";
-import {Product} from "../product";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'boodschappenlijst',

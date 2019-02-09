@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductGroep} from "../productgroep";
+import {ProductGroepenService} from "../services/productgroepen.service";
 
 @Component({
   selector: 'productgroepen',
@@ -10,13 +11,10 @@ export class ProductgroepenComponent implements OnInit {
 
   productGroepen: ProductGroep[];
 
-  constructor() {
-    this.productGroepen = [
-        new ProductGroep(1, 'groenten-fruit.jpg', 'Groenten'),
-        new ProductGroep(2, 'koffie.jpg', 'Koffie'),
-        new ProductGroep(3, 'vlees.png', 'Vlees'),
-        new ProductGroep(4, 'bakprodukten.jpg', 'Bakproducten')
-    ];
+  constructor(
+      private productGroepenService: ProductGroepenService
+  ) {
+    this.productGroepen = productGroepenService.getProductGroepen();
   }
 
   ngOnInit() {

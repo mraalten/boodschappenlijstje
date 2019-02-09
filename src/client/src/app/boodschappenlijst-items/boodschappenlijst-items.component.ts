@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BoodschappenlijstItem} from "../boodschappenlijstitem";
-import {BoodschappenlijstService} from "../boodschappenlijst.service";
 import {Subscription} from "rxjs/Subscription";
+import {BoodschappenlijstService} from "../services/boodschappenlijst.service";
 
 @Component({
   selector: 'boodschappenlijst-items',

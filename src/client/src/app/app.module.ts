@@ -18,7 +18,9 @@ import { ProductKnoppenComponent } from './product-knoppen/product-knoppen.compo
 import { ProductMuterenComponent } from './product-muteren/product-muteren.component';
 import { BoodschappenlijstProductgroepenComponent } from './boodschappenlijst-productgroepen/boodschappenlijst-productgroepen.component';
 import { BoodschappenlijstProductenComponent } from './boodschappenlijst-producten/boodschappenlijst-producten.component';
-import {BoodschappenlijstService} from "./boodschappenlijst.service";
+import {BoodschappenlijstService} from "./services/boodschappenlijst.service";
+import {ProductenService} from "./services/producten.service";
+import {ProductGroepenService} from "./services/productgroepen.service";
 
 const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -50,7 +52,9 @@ const routes : Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-      BoodschappenlijstService
+      BoodschappenlijstService,
+      ProductGroepenService,
+      ProductenService
   ],
   bootstrap: [AppComponent]
 })
