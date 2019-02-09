@@ -16,7 +16,11 @@ export class BoodschappenlijstService {
     }
 
     addProduct(product: Product) {
-        this.itemMap.set(3, new BoodschappenlijstItem(2, product));
-        this.itemListObserver.next();
+        if (this.itemMap.get(product.id)) {
+            alert(product.naam + ' staat al op je lijstje. Gebruik + om het aantal te verhogen');
+        } else {
+            this.itemMap.set(product.id, new BoodschappenlijstItem(2, product));
+            this.itemListObserver.next();
+        }
     }
 }
