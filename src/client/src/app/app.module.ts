@@ -16,16 +16,14 @@ import { ProductenComponent } from './producten/producten.component';
 import { ProductComponent } from './product/product.component';
 import { ProductKnoppenComponent } from './product-knoppen/product-knoppen.component';
 import { ProductMuterenComponent } from './product-muteren/product-muteren.component';
-import { BoodschappenlijstProductgroepenComponent } from './boodschappenlijst-productgroepen/boodschappenlijst-productgroepen.component';
-import { BoodschappenlijstProductenComponent } from './boodschappenlijst-producten/boodschappenlijst-producten.component';
 import {BoodschappenlijstService} from "./services/boodschappenlijst.service";
 import {ProductenService} from "./services/producten.service";
 import {ProductGroepenService} from "./services/productgroepen.service";
 
 const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
-    { path: 'home', component: BoodschappenlijstProductgroepenComponent},
-    { path: 'products/:productGroepId', component: BoodschappenlijstProductenComponent},
+    { path: 'home', component: ProductgroepenComponent},
+    { path: 'products/:productGroepId', component: ProductenComponent},
     { path: 'editproduct', component: ProductMuterenComponent}
 ]
 @NgModule({
@@ -42,8 +40,6 @@ const routes : Routes = [
     ProductComponent,
     ProductKnoppenComponent,
     ProductMuterenComponent,
-    BoodschappenlijstProductgroepenComponent,
-    BoodschappenlijstProductenComponent
   ],
   imports: [
     BrowserModule,
