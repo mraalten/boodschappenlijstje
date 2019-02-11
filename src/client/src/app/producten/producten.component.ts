@@ -25,9 +25,4 @@ export class ProductenComponent {
 
     @Output() onProductSelected: EventEmitter<Product>;
 
-    productSelected(product: Product) {
-        this.onProductSelected.emit(product);
-        this.boodschappenLijstService.addProduct(product);
-    }
-
 }

@@ -1,34 +1,38 @@
 <div class="content-block">
-  <form>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
     <div>
       <div class="titel">
         Wijzigen produkt <br>
       </div>
       <table>
+
         <tr>
           <td>Produktnaam</td>
-          <td><input type="text"></td>
+          <td><input type="text" placeholder="Naam" name="productName"></td>
         </tr>
-        <tr>
-          <td><input type="hidden"></td>
-        </tr>
+
         <tr>
           <td>Eenheid</td>
-          <td>{{produkt.eenheid}}</td>
+          <td>{{product.eenheid.displayValue}}</td>
         </tr>
+
         <tr>
           <td>Nieuwe Eenheid</td>
           <td><select></select></td>
         </tr>
+
         <tr>
           <td>
-            <button class="edit-product-button">Annuleren</button>
+            <button class="edit-product-button" (click)="cancelEditing()">Annuleren</button>
           </td>
           <td>
             <button class="edit-product-button">Opslaan</button>
           </td>
         </tr>
+
       </table>
     </div>
+
   </form>
 </div>

@@ -284,11 +284,6 @@ export class ProductenService {
         return Array.from(this.productenMap.values());
     }
 
-    addProduct(product: Product) {
-        this.productenMap.set(3, product);
-        this.productenObserver.next();
-    }
-
     getProductenFor(productGroepId: number): Product[] {
         var productIterator = this.productenMap.values();
         var productResult = productIterator.next();
@@ -303,4 +298,20 @@ export class ProductenService {
         }
         return productsForGroupId;
     }
+
+    getProduct(selectedProductId: number) : Product {
+         // TODO use this.productenMap.get(selectedProductId);
+
+         var keyIterator = this.productenMap.keys();
+         var keyResult = keyIterator.next();
+         while (!keyResult.done) {
+              if (keyResult.value == selectedProductId) {
+                   console.log('Got him!');
+                   return this.productenMap.get(keyResult.value);
+              }
+              keyResult = keyIterator.next();
+         }
+         return this.productenMap.get(selectedProductId);
+    }
+
 }

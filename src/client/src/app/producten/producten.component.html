@@ -2,9 +2,7 @@
 
   <product-knoppen></product-knoppen>
   <div *ngFor="let product of producten" style="display: inline-block">
-    <product
-        [product]="product"
-        (click)="productSelected(product)">
+    <product [product]="product">
     </product>
   </div>
 

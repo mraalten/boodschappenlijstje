@@ -1,8 +1,8 @@
 <div class="product-item">
     <div>
-      <img src="/assets/images/{{product.imageNaam}}" class="product-image">
+      <img src="/assets/images/{{product.imageNaam}}" class="product-image" (click)="productSelected(product)">
           <div class="productgroep-item-text">
-            <img src="/assets/images/edit-icon.jpeg" class="edit-image" alt="Bewerken">
+            <img src="/assets/images/edit-icon.jpeg" class="edit-image" alt="Bewerken" (click)="editProduct(product)">
             <div class="text-centered">
               {{product.naam}}
             </div>

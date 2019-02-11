@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from "@angular/router";
 
@@ -24,7 +24,7 @@ const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
     { path: 'home', component: ProductgroepenComponent},
     { path: 'products/:productGroepId', component: ProductenComponent},
-    { path: 'editproduct', component: ProductMuterenComponent}
+    { path: 'editproduct/:productId', component: ProductMuterenComponent}
 ]
 @NgModule({
   declarations: [
@@ -44,6 +44,7 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(routes)
   ],
