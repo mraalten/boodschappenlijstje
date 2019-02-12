@@ -1,5 +1,5 @@
 <div class="content-block">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
 
     <div>
       <div class="titel">
@@ -7,27 +7,31 @@
       </div>
       <table>
 
-        <tr>
+        <tr class="row">
           <td>Produktnaam</td>
-          <td><input type="text" placeholder="Naam" name="productName"></td>
-        </tr>
-
-        <tr>
-          <td>Eenheid</td>
-          <td>{{product.eenheid.displayValue}}</td>
-        </tr>
-
-        <tr>
-          <td>Nieuwe Eenheid</td>
-          <td><select></select></td>
-        </tr>
-
-        <tr>
           <td>
-            <button class="edit-product-button" (click)="cancelEditing()">Annuleren</button>
+              <input type="text" [formControl]="editForm.controls['productName']">
+            <div *ngIf="!editForm.controls['productName'].valid" class="field-error">Ongeldige waarde</div>
           </td>
+        </tr>
+
+        <tr class="row">
+          <td>Eenheid</td>
+          <td>
+            <select [formControl]="editForm.controls['newEenheid']">
+                <option [value]="eenheid.displayValue" *ngFor="let eenheid of eenheden">
+                  {{eenheid.displayValue}}
+                </option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
           <td>
             <button class="edit-product-button">Opslaan</button>
+          </td>
+          <td>
+            <button class="edit-product-button" (click)="cancelEditing()">Annuleren</button>
           </td>
         </tr>
 

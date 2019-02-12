@@ -1,4 +1,5 @@
 interface EnumIdentity { }
+
 export class Eenheid implements EnumIdentity {
 
     private static AllValues: { [name: string] : Eenheid } = {};
@@ -29,4 +30,22 @@ export class Eenheid implements EnumIdentity {
         return Eenheid.AllValues[data];
     }
 
+    public static allValues() : Eenheid[] {
+        //TODO use the allValues from enum instead of hardcode all
+        return [
+            this.KILO,
+            this.GRAM,
+            this.POT_KLEIN,
+            this.POT_GROOT,
+            this.STUKS,
+            this.ZAK,
+            this.BLIK_KLEIN,
+            this.BLIK_GROOT,
+            this.LITER,
+            this.TROS,
+            this.FLES,
+            this.PAK,
+            this.DOOS
+        ];
+    }
 }

@@ -306,7 +306,6 @@ export class ProductenService {
          var keyResult = keyIterator.next();
          while (!keyResult.done) {
               if (keyResult.value == selectedProductId) {
-                   console.log('Got him!');
                    return this.productenMap.get(keyResult.value);
               }
               keyResult = keyIterator.next();
@@ -314,4 +313,17 @@ export class ProductenService {
          return this.productenMap.get(selectedProductId);
     }
 
+    editProduct(selectedProductId: number, newProductName: string, newEenheid: Eenheid) {
+         var product = this.getProduct(selectedProductId);
+         if (product.naam != newProductName || product.eenheid != newEenheid) {
+              product.naam = newProductName;
+              product.eenheid = newEenheid;
+              this.productenMap.set(selectedProductId, product);
+         }
+         this.informSubscribers(product);
+    }
+
+    private informSubscribers(product: Product) {
+        this.productenObserver.next(product);
+    }
 }
