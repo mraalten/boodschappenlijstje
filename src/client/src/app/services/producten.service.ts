@@ -1,12 +1,10 @@
 import {Injectable} from "@angular/core";
-import {Subject} from "rxjs/Subject";
 import {Product} from "../product";
 import {Eenheid} from "../eenheid";
 
 @Injectable()
 export class ProductenService {
     productenMap = new Map<number, Product>();
-    productenObserver = new Subject();
 
     constructor() {
          this.addNewProduct(new Product(1, 'Sla', 'sla.jpg', Eenheid.STUKS, 1));
@@ -300,16 +298,7 @@ export class ProductenService {
     }
 
     getProduct(selectedProductId: number) : Product {
-         // TODO use this.productenMap.get(selectedProductId);
-
-         var keyIterator = this.productenMap.keys();
-         var keyResult = keyIterator.next();
-         while (!keyResult.done) {
-              if (keyResult.value == selectedProductId) {
-                   return this.productenMap.get(keyResult.value);
-              }
-              keyResult = keyIterator.next();
-         }
+      debugger;
          return this.productenMap.get(selectedProductId);
     }
 
@@ -320,10 +309,6 @@ export class ProductenService {
               product.eenheid = newEenheid;
               this.productenMap.set(selectedProductId, product);
          }
-         this.informSubscribers(product);
     }
 
-    private informSubscribers(product: Product) {
-        this.productenObserver.next(product);
-    }
 }

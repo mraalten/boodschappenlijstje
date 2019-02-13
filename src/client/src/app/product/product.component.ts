@@ -29,8 +29,5 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.subscription = this.productenService.productenObserver.subscribe((changedProduct) => {
-            console.log('changed product: ' + changedProduct);
-        });
     }
 }

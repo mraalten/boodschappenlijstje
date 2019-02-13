@@ -23,7 +23,7 @@ export class ProductMuterenComponent implements OnInit {
       formBuilder: FormBuilder
 
   ) {
-      route.params.subscribe(params => {this.selectedProductId = params['productId']})
+      route.params.subscribe(params => {this.selectedProductId = Number(params['productId'])})
       this.product = productenService.getProduct(this.selectedProductId);
       this.editForm = formBuilder.group({
          'productName' : [this.product.naam, Validators.required],
