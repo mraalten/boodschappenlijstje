@@ -26,6 +26,23 @@
           </td>
         </tr>
 
+        <tr class="row">
+          <td>Afbeelding:</td>
+          <td>
+            <input type="radio" [formControl]="editForm.controls['imageType']" value="own">Eigen afbeelding
+            <input type="radio" [formControl]="editForm.controls['imageType']" value="NA">Geen afbeelding
+            <br/>
+            <div class="product-image-box">
+              <img [hidden]="editForm.controls['imageType'].value == 'NA'" src="/assets/images/{{editForm.controls['imageName'].value}}" class="product-image">
+              <img [hidden]="editForm.controls['imageType'].value == 'own'" src="/assets/images/geen_afbeelding.jpg" class="product-image">
+            </div>
+            <br/>
+            <input [hidden]="editForm.controls['imageType'].value == 'NA'" type="text" [formControl]="editForm.controls['imageName']">
+            <div *ngIf="!editForm.controls['imageName'].valid" class="field-error">Ongeldige waarde</div>
+          </td>
+
+        </tr>
+
         <tr>
           <td>
             <button class="edit-product-button">Opslaan</button>

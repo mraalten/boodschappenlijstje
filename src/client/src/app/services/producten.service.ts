@@ -298,7 +298,6 @@ export class ProductenService {
     }
 
     getProduct(selectedProductId: number) : Product {
-      debugger;
          return this.productenMap.get(selectedProductId);
     }
 
