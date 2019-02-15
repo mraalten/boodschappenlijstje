@@ -57,4 +57,7 @@ export class BoodschappenlijstService {
         return boodschappenlijstItem.aantal;
     }
 
+    isItemOnList(productId: number) {
+        return this.itemMap.has(productId);
+    }
 }

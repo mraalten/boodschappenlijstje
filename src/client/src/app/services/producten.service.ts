@@ -1,10 +1,12 @@
 import {Injectable} from "@angular/core";
 import {Product} from "../product";
 import {Eenheid} from "../eenheid";
+import {Subject} from "rxjs";
 
 @Injectable()
 export class ProductenService {
     productenMap = new Map<number, Product>();
+    productenObserver = new Subject();
 
     constructor() {
          this.addNewProduct(new Product(1, 'Sla', 'sla.jpg', Eenheid.STUKS, 1));
@@ -310,4 +312,8 @@ export class ProductenService {
          }
     }
 
+     delete(productId: number) {
+         this.productenMap.delete(productId);
+         this.productenObserver.next();
+     }
 }

@@ -28,10 +28,10 @@
 
         <tr class="row">
           <td>Afbeelding:</td>
-          <td>
+          <td colspan="2">
             <input type="radio" [formControl]="editForm.controls['imageType']" value="own">Eigen afbeelding
             <input type="radio" [formControl]="editForm.controls['imageType']" value="NA">Geen afbeelding
-            <br/>
+            <br/><br>
             <div class="product-image-box">
               <img [hidden]="editForm.controls['imageType'].value == 'NA'" src="/assets/images/{{editForm.controls['imageName'].value}}" class="product-image">
               <img [hidden]="editForm.controls['imageType'].value == 'own'" src="/assets/images/geen_afbeelding.jpg" class="product-image">
@@ -49,6 +49,9 @@
           </td>
           <td>
             <button class="edit-product-button" (click)="cancelEditing()">Annuleren</button>
+          </td>
+          <td>
+            <button class="delete-product-button" (click)="$event.preventDefault(); deleteProduct();">Verwijder product</button>
           </td>
         </tr>
 
