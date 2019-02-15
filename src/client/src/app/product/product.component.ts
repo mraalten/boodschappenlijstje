@@ -14,14 +14,16 @@ export class ProductComponent implements OnInit {
     @Input() product: Product;
     subscription: Subscription;
     numberofItemsOnList: number;
-    itemOnList: boolean;
 
     constructor(
         private boodschappenLijstService: BoodschappenlijstService,
         private productenService: ProductenService,
         private router: Router
     ) {
-        this.numberofItemsOnList = 0;
+        this.subscription = this.boodschappenLijstService.itemListObserver.subscribe(() => {
+            this.numberofItemsOnList = this.boodschappenLijstService.getNumberOfItemsOnList(this.product.id);
+            console.log('onInit product');
+        });
     }
 
     productSelected(product: Product) {
@@ -33,11 +35,7 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.subscription = this.boodschappenLijstService.itemListObserver.subscribe(() => {
-            this.numberofItemsOnList = this.boodschappenLijstService.getNumberOfItemsOnList(this.product.id);
-            this.itemOnList = this.boodschappenLijstService.isItemOnList(this.product.id);
-
-        });
+        this.numberofItemsOnList = this.boodschappenLijstService.getNumberOfItemsOnList(this.product.id);
     }
 
 }

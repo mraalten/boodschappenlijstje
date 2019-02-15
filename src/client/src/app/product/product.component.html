@@ -1,5 +1,5 @@
 <div class="product-item">
-    <div [hidden]="!itemOnList" class="number-items-on-list">
+    <div [hidden]="this.numberofItemsOnList == 0" class="number-items-on-list">
         {{numberofItemsOnList}}
     </div>
     <div>
