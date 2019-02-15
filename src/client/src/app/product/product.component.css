@@ -10,6 +10,18 @@
     height: 140px;
 }
 
+.produkt-item-selected {
+    background: #2590DE;
+}
+
+.number-items-on-list {
+    border-radius: 25px;
+    position: absolute;
+    background: #2590DE;
+    width: 25px;
+    color: white;
+}
+
 .product-image {
     /*width:  86px;*/
     height: 100px;

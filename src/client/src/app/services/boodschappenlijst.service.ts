@@ -48,4 +48,16 @@ export class BoodschappenlijstService {
             alert('Het te verwijderen product staat niet (meer) op je lijstje');
         }
     }
+
+    getNumberOfItemsOnList(productId: number) {
+        let boodschappenlijstItem = this.itemMap.get(productId);
+        if (boodschappenlijstItem == undefined) {
+            return 0;
+        }
+        return boodschappenlijstItem.aantal;
+    }
+
+    isItemOnList(productId: number) {
+        return this.itemMap.has(productId);
+    }
 }

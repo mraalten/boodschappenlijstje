@@ -3,7 +3,7 @@ import {Product} from "./product";
 export class BoodschappenlijstItem {
     public id: number;
     public product: Product;
-    private aantal: number;
+    public aantal: number;
 
     constructor(
         id: number, product: Product

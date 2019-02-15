@@ -1,4 +1,7 @@
 <div class="product-item">
+    <div [hidden]="!itemOnList" class="number-items-on-list">
+        {{numberofItemsOnList}}
+    </div>
     <div>
       <img src="/assets/images/{{product.imageNaam}}" class="product-image" (click)="productSelected(product)">
           <div class="productgroep-item-text">

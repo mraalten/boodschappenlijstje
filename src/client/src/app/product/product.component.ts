@@ -13,12 +13,16 @@ import {ProductenService} from "../services/producten.service";
 export class ProductComponent implements OnInit {
     @Input() product: Product;
     subscription: Subscription;
+    numberofItemsOnList: number;
+    itemOnList: boolean;
 
     constructor(
         private boodschappenLijstService: BoodschappenlijstService,
         private productenService: ProductenService,
         private router: Router
-    ) {}
+    ) {
+        this.numberofItemsOnList = 0;
+    }
 
     productSelected(product: Product) {
         this.boodschappenLijstService.addProduct(product);
@@ -29,5 +33,11 @@ export class ProductComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.subscription = this.boodschappenLijstService.itemListObserver.subscribe(() => {
+            this.numberofItemsOnList = this.boodschappenLijstService.getNumberOfItemsOnList(this.product.id);
+            this.itemOnList = this.boodschappenLijstService.isItemOnList(this.product.id);
+
+        });
     }
+
 }
