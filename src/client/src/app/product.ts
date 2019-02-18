@@ -5,9 +5,10 @@ export class Product {
     constructor(
         public id: number,
         public naam: string,
+        // public merk: string,
         public imageNaam: string,
         public eenheid: Eenheid,
-        public productGroepid: number,
+        public productGroepId: number,
     ){}
 
 }

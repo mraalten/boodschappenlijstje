@@ -66,7 +66,7 @@ export class ProductMuterenComponent implements OnInit {
   }
 
   private backToSelectedProductGroup() {
-      this.router.navigate(['/products', this.product.productGroepid]);
+      this.router.navigate(['/products', this.product.productGroepId]);
   }
 
   ngOnInit() {

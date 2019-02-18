@@ -19,6 +19,8 @@ import { ProductMuterenComponent } from './product-muteren/product-muteren.compo
 import {BoodschappenlijstService} from "./services/boodschappenlijst.service";
 import {ProductenService} from "./services/producten.service";
 import {ProductGroepenService} from "./services/productgroepen.service";
+import {HttpClientModule} from "@angular/common/http";
+import {RestService} from "./services/rest-service";
 
 const routes : Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -43,6 +45,7 @@ const routes : Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
@@ -51,7 +54,8 @@ const routes : Routes = [
   providers: [
       BoodschappenlijstService,
       ProductGroepenService,
-      ProductenService
+      ProductenService,
+      RestService
   ],
   bootstrap: [AppComponent]
 })

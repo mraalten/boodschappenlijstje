@@ -1,0 +1,265 @@
+1;Sla;sla.jpg;STUKS;1
+2;Bloemkool;bloemkool.png;STUKS;1
+3;Sperziebonen;sperziebonen.jpg;GRAM;1
+4;Aardappelen;zak_aardappels.png;ZAK;1
+5;Uien (rode);rode_uien.jpg;STUKS;1
+6;Zuurkool;zuurkool-naturel.jpg;ZAK;1
+7;Boerenkool;boerenkool.jpg;ZAK;1
+8;Hutspot;hutspot.jpg;ZAK;1
+9;Slamix;slamix.jpg;ZAK;1
+10;Andijvie;andijvie.jpg;ZAK;1
+11;Bananen;bananen.jpg;STUKS;2
+12;Elstar appels;elstar.jpg;ZAK;2
+13;Granny Smith;granny-smith.jpg;STUKS;2
+14;Jonagold;jonagold.jpg;STUKS;2
+15;Mandarijnen;mandarijnen.jpg;ZAK;2
+16;Druiven pitloos wit;druiven-wit.png;STUKS;2
+17;Meloen galia;galia-meloen.jpg;STUKS;2
+18;Spinazie groot;spinazie.png;POT_GROOT;3
+19;Spinazie klein;spinazie.png;POT_KLEIN;3
+20;Doperwten;doperwten.png;POT_GROOT;3
+21;Wortelen;worteltjes.png;POT_GROOT;3
+22;Rode kool m. appel;rode-kool-appel.png;POT_GROOT;3
+23;Rode bieten;rode-bieten.png;POT_KLEIN;3
+24;Ananasschijven;ananasschijven.png;BLIK_KLEIN;3
+25;Fruitcocktail;fruitcocktail.jpg;BLIK_GROOT;3
+26;Blue Band light;blue-band-light.png;FLES;4
+27;Blue Band pakje;blue-band-pakje.jpg;STUKS;4
+28;Vanillevla;vanillevla.png;PAK;4
+29;Optimel Framboos;optimel-framboos.jpg;PAK;4
+30;Optimel Mango-Passievrucht;optimel-mango-passievrucht.jpg;PAK;4
+31;Slagroom;slagroom.jpg;FLES;4
+32;Yoghurt;yoghurt.jpg;PAK;4
+33;Macaroni;macaroni.jpg;ZAK;24
+34;Spaghetti;spaghetti.jpg;ZAK;24
+35;Mix voor macaroni/spaghetti;mix-voor-macaroni-spaghetti.jpeg;DOOS;23
+37;Spaghettisaus Bolognese;spaghettisaus-bolognese.png;POT_GROOT;5
+38;Chicken Tonight Hawaii;chicken-tonight.jpg;POT_GROOT;23
+39;Rijst;lassie-rijst.png;PAK;24
+40;Mie nestjes;mie-nestjes.png;DOOS;24
+41;Gehakt runder;rundergehakt.jpg;GRAM;6
+42;Slavinken;slavinken.jpg;STUKS;6
+43;Zigeunerschnitzel;zigeunerschnitzel.jpg;STUKS;6
+44;Kipfilet 2st.;kipfilet-2stuks.jpg;PAK;6
+45;Kipfilet 3st.;kipfilet-3stuks.jpg;PAK;6
+46;Sausijsjes;sausijsjes.jpg;STUKS;6
+47;Kip vleugels;kipvleugels.jpg;PAK;6
+48;Varkens/runder carre;varkenscarre.jpg;STUKS;6
+49;Schnitzel naturel;schnitzel-naturel.jpg;STUKS;6
+50;Kipschnitzel;kipschnitzel.jpg;STUKS;6
+51;Rookworst fijn;rookworst.png;STUKS;6
+52;Shoarma;shoarma.jpg;GRAM;6
+53;Hamlappen;hamlappen.jpg;GRAM;6
+54;Blikboterhamworst;boterhamworst.jpg;STUKS;7
+55;Sategehakt;sategehakt.png;STUKS;7
+56;Schouderham;schouderham.jpg;STUKS;7
+57;Schwarzwalder schinken;schwarzwalder-schinken.jpg;STUKS;7
+58;Zeeuws spek;zeeuws-spek.jpg;STUKS;7
+59;Katenspek;katenspek.jpg;STUKS;7
+60;Filet Americain;filet-americain.png;STUKS;7
+61;Leverworst;leverworst.png;STUKS;7
+62;Huzarensalade;huzarensalade.jpg;STUKS;7
+63;Augurken;augurken.jpg;POT_GROOT;8
+64;Kroepoek normaal;kroepoek-normaal.jpg;ZAK;23
+65;Kroepoek cassave;kroepoek-cassave.png;ZAK;23
+66;Ketjap Manis;ketjap-manis.jpg;FLES;8
+67;Mayonaise;mayonaise-calve.jpg;POT_GROOT;25
+68;Remia fritessaus light;remia-fritessaus-light.jpg;FLES;25
+69;Curry Gewurz;curry.jpg;FLES;25
+70;Fritessaus Americain;fritessaus-americain.jpg;FLES;25
+71;Slasaus halfvol;calve-slasaus-halfvol.jpg;FLES;8
+72;Diamantvet 2 ltr.;diamant-vet.jpg;FLES;17
+73;Natuurazijn;natuurazijn.png;FLES;8
+74;Whisky cocktail;calve-whiskey-cocktail.jpg;FLES;25
+76;Maggi soep;maggi-soep.jpg;FLES;21
+77;Kerrie ananas;kerrie-ananas.jpg;FLES;25
+78;Tomaten-groentensoep;tomaten-groentesoep.jpg;PAK;21
+79;Drinkbouillon tuinkruiden;maggi-drinkbouillon-tuinkruiden.png;POT_KLEIN;21
+80;Bouillonblokjes;maggi-bouillonblokjes.jpg;DOOS;21
+81;Vleesjus rundvlees;vleesjus-rundvlees.png;ZAK;8
+82;Kaas stuk jong belegen;kaas-stuk.jpg;STUKS;9
+83;Geraspte kaas jong belegen;geraspte-kaas.png;ZAK;9
+84;Kaasblokjes jong belegen;kaasblokjes.png;ZAK;9
+85;Kruidenboter;kruidenboter.png;STUKS;9
+86;Cola light 4-pack 1,25 liter;cola-light-4pack.jpg;STUKS;10
+87;Cola 4-pack 1,25 liter;cola-4pack.png;STUKS;10
+88;Cola 1,5 liter;cola-1.5-liter.jpg;STUKS;10
+89;Cola light 1,5 liter;cola-light-1.5-liter.jpg;STUKS;10
+90;Sinas light;sinas-light.png;FLES;10
+91;Spa orange;spa-orange.jpg;FLES;10
+92;Hertog Jan bier krat;hertog-jan-krat.jpg;STUKS;10
+93;Port Tawny;port.png;FLES;10
+94;Wicky oranje groot;wicky-groot-oranje.jpg;STUKS;11
+95;Wicky rose groot;wicky-groot-rose.jpg;STUKS;11
+96;Wicky oranje klein;wicky-klein-oranje.jpg;STUKS;11
+97;Wicky blauw klein;wicky-klein-blauw.jpg;STUKS;11
+98;Wicky rose klein;wicky-klein-rose.jpg;STUKS;11
+99;Wicky groen klein;wicky-klein-groen.jpg;STUKS;11
+100;Spa  bosvruchten;spa-bosvruchten.jpg;PAK;11
+101;IJsthee citroen;ijsthee-citroen.png;PAK;11
+102;IJsthee perzik;ijsthee-perzik.png;PAK;11
+103;Harde worst;harde-worst.jpg;STUKS;12
+104;Smac groot;smac.jpg;STUKS;22
+105;Sate balletjes;gehaktballetjes-in-sate.png;BLIK_KLEIN;22
+106;Cocktailworstjes;cocktailworstjes.jpg;BLIK_KLEIN;12
+107;Toastjes (mini-crackers;lu-mini-crackers.jpg;DOOS;12
+108;Pepsels stokjes;pepsels.png;ZAK;12
+109;Chocomel halfvol;chocomelk-halfvol-liter.png;LITER;12
+110;Andy lavendel;andy-lavendel.jpg;FLES;13
+111;Dikbleek;dikbleek.png;FLES;13
+112;Vaatwastabletten;vaatwastabletten.jpg;DOOS;13
+113;Vaatwaszout;vaatwaszout.jpg;DOOS;13
+114;Glansspoelmiddel;glansspoelmiddel.jpg;FLES;13
+115;Omo vloeibaar blauwe dop;omo-vloeibaar-blauwe-dop.jpg;FLES;13
+116;Omo vloeibaar paarse dop;omo-vloeibaar-paarse-dop.jpg;FLES;13
+117;Schatkistjes;schatkistjes.jpg;ZAK;14
+118;Skittles uitdeelzakjes;skittles.png;ZAK;14
+119;Pepermunt;wilhelmina-pepermunt.jpg;PAK;14
+120;Café noir;cafe-noir.png;PAK;14
+121;Biskwie;biskwie.jpg;PAK;14
+122;Brinkys;brinkys.jpg;ZAK;14
+123;Biskwie met kokos;kokos-biscuit.jpg;PAK;14
+124;Shampoo iedere dag;shampoo-iedere-dag.jpg;FLES;15
+125;Shampoo glans;shampoo-glans.png;FLES;15
+126;Handzeep;palmolive-handzeep.png;PAK;15
+127;Tandpasta;prodent-tandpasta-soft-mint.jpg;STUKS;15
+128;Douchegel rose dop;derlon-douchegel.jpg;STUKS;15
+129;Gel geel;gel.gif;POT_KLEIN;15
+130;Billendoekjes Ikke doen;ikke-doen.jpg;ZAK;15
+131;Wattenstaafjes;wattenstaafjes.jpg;PAK;15
+132;Haarlak blauw;junior-haarlak.jpg;FLES;15
+133;Fruitbiscuit Sultana-achtig;fruitbiscuit-appel.png;PAK;18
+134;Italiaanse kruiden;italiaanse-kruiden-hartig.png;PAK;18
+135;Oploskoffie;oploskoffie.jpg;POT_GROOT;16
+136;Theezakjes 1 kop;theezakjes.png;DOOS;16
+137;Koffie 250 gr Snelfiltermaling;de-koffie-snelfilter.jpg;PAK;16
+138;Poedersuiker;poedersuiker.jpg;STUKS;16
+139;Mix voor appeltaart;mix-voor-appeltaart.jpg;PAK;17
+140;Mix voor eierpannekoeken;mix-voor-eierpannekoeken.jpg;PAK;17
+141;Mix voor muffins naturel;mix-muffins.jpg;DOOS;17
+142;Schenkstroop;schenkstroop.jpg;FLES;17
+143;Pindakaas light;pindakaas-light.gif;POT_KLEIN;18
+144;Pita broodjes;pita-broodjes.jpg;ZAK;18
+145;Kersenjam;kersenjam.jpg;POT_KLEIN;18
+146;Abrikozenjam;abrikozenjam.png;POT_KLEIN;18
+147;Aardbeienjam;aardbeienjam.png;POT_KLEIN;18
+148;Sandwichspread natural;sandwichspread.png;POT_KLEIN;18
+149;Appelstroop rinse;appelstroop.jpg;POT_KLEIN;18
+150;Boterhamzakjes;boterhamzakjes.jpg;DOOS;19
+151;Muesli met chocola;muesli-chocolade.png;DOOS;19
+152;Rijstwafels;rijstwafels.png;PAK;19
+153;Mini frites;mini-frites.png;ZAK;20
+154;Frikandellen 20st.;frikandellen-20st.png;DOOS;20
+155;Kipfingers;kipfingers.jpg;DOOS;20
+156;Kroketten;kroketten.jpg;DOOS;20
+157;Gehaktballetjes in zout-zure saus;gehaktballetjes-zoet-zure-saus.jpg;STUKS;20
+158;Sate mild;sate-mild.jpg;STUKS;20
+159;Hamburgers;hamburgers.jpg;DOOS;20
+160;Bitterballen;bitterballen.jpg;ZAK;20
+161;Cakemix;geen_afbeelding.jpg;PAK;17
+164;Dubbelfris witte druif;geen_afbeelding.jpg;PAK;11
+165;Citroenthee 1 kops;geen_afbeelding.jpg;DOOS;16
+166;Bosvruchtenthee 1 kops;geen_afbeelding.jpg;DOOS;16
+167;Koffiemelkcups;geen_afbeelding.jpg;PAK;16
+168;Mosterdrollade;mosterdrollade.jpg;STUKS;7
+169;Dubbelfris perzik +;geen_afbeelding.jpg;PAK;11
+170;Optimel Aardbei;optimel-aardbei.png;LITER;4
+171;Dextro Energy Classic;geen_afbeelding.jpg;PAK;14
+172;Sperziebonen;sperziebonen-pot.png;POT_GROOT;3
+174;Kl pakjes chocomelk;geen_afbeelding.jpg;PAK;10
+175;Vuilniszak blauw;geen_afbeelding.jpg;STUKS;20
+176;Snackerjacks bbq;geen_afbeelding.jpg;PAK;19
+177;Snackerjacks cheese;geen_afbeelding.jpg;PAK;19
+178;Gehaktschnitsels;gehaktschnitzels.png;PAK;6
+179;Riblappen;riblappen.jpeg;GRAM;6
+180;Soepgroenten;soepgroenten.jpeg;ZAK;1
+181;Filterzakjes;geen_afbeelding.jpg;PAK;16
+182;Sultana kaneel;geen_afbeelding.jpg;PAK;16
+184;Dressing honing mosterd;geen_afbeelding.jpg;FLES;8
+185;Boerenmetworst;boerenmetworst.jpeg;STUKS;7
+186;Toiletblop eigenmerk;geen_afbeelding.jpg;STUKS;13
+187;Kipfilet;kipfilet.jpeg;GRAM;7
+188;Komkommer;komkommer.jpeg;STUKS;1
+189;Olijfolie;geen_afbeelding.jpg;FLES;8
+190;Cristal clear citroen;geen_afbeelding.jpg;PAK;11
+191;Heksenkaas;geen_afbeelding.jpg;STUKS;9
+193;Tostibrood;geen_afbeelding.jpg;STUKS;18
+194;Gourmetschotel;gourmetschotel.jpeg;STUKS;6
+195;Scheermesjes blauw;geen_afbeelding.jpg;STUKS;15
+196;Dubbelfris mandarijn;geen_afbeelding.jpg;PAK;11
+198;Zout;geen_afbeelding.jpg;POT_GROOT;8
+199;Kerriepoeder;kerriepoeder.jpg;POT_KLEIN;5
+200;Plasticafval zk;geen_afbeelding.jpg;STUKS;15
+201;Lekker toetje;lekker-toetje.jpeg;STUKS;4
+202;Spekblokjes mager;spekblokjes.jpeg;PAK;7
+204;Broccolli;broccoli.jpeg;STUKS;1
+205;Paprika rood;paprika-rood.jpeg;STUKS;1
+206;Biefstuk;biefstuk.png;STUKS;6
+207;Toilet blokje;geen_afbeelding.jpg;STUKS;13
+208;Tomatensoep;tomatensoep.jpg;BLIK_GROOT;21
+209;Tomatensoep klein;tomatensoep-klein.jpg;BLIK_GROOT;21
+210;Badkamer reiniger 3g;geen_afbeelding.jpg;FLES;13
+211;Crackers;geen_afbeelding.jpg;PAK;19
+212;Sandwichspread tomaat;geen_afbeelding.jpg;POT_GROOT;18
+213;Matses;geen_afbeelding.jpg;DOOS;19
+214;Crackers vezelrijk;geen_afbeelding.jpg;STUKS;19
+215;Cocktailprikkers;geen_afbeelding.jpg;DOOS;20
+216;Sate prikkers;geen_afbeelding.jpg;DOOS;20
+217;Babi ketjap conimex;mix-voor-babi-ketjap.png;PAK;23
+218;Maizena;maizena.jpeg;PAK;8
+219;Zak zuurtjes;geen_afbeelding.jpg;ZAK;14
+220;Kipschnitsels ambachtelijk;kipschnitzel-ambachtelijk.jpeg;STUKS;6
+221;Wicky rood klein;geen_afbeelding.jpg;STUKS;11
+222;Mix voor kwarktaart naturel;geen_afbeelding.jpg;STUKS;17
+223;Smokey BBQ Honey;remia-sweet-honey-bbq-saus.jpeg;FLES;25
+224;Voque deo rose;geen_afbeelding.jpg;FLES;15
+225;Schuursponsjes;geen_afbeelding.jpg;PAK;13
+227;M&Ms;geen_afbeelding.jpg;ZAK;14
+228;Losse wraps;losse-wraps.jpg;ZAK;23
+229;Salami;geen_afbeelding.jpg;STUKS;7
+230;Verse hamburgers;verse-hamburger.jpg;STUKS;6
+231;Dubro badkamerreiniger;geen_afbeelding.jpg;FLES;13
+232;Wicky groot rood;geen_afbeelding.jpg;PAK;11
+233;Wicky groot blauw;geen_afbeelding.jpg;PAK;11
+234;Schuimpjes;geen_afbeelding.jpg;ZAK;14
+235;Komo vuilniszak;geen_afbeelding.jpg;ZAK;20
+236;Aanmaakblokjes;geen_afbeelding.jpg;DOOS;20
+237;Unox rookworst;geen_afbeelding.jpg;STUKS;12
+238;Verse slagroom;verse-slagroom.jpg;PAK;4
+239;Hamblokjes;geen_afbeelding.jpg;PAK;7
+240;Frikandel 5 st;geen_afbeelding.jpg;DOOS;20
+241;Sate saus;geen_afbeelding.jpg;ZAK;8
+242;Suikervrije hagelslag;geen_afbeelding.jpg;DOOS;17
+243;Saté schnitzel;sate-schnitzel.jpg;STUKS;6
+244;Panneermeel;geen_afbeelding.jpg;DOOS;8
+245;Slimpie aanmaak framb;geen_afbeelding.jpg;FLES;11
+246;Eiersalade;geen_afbeelding.jpg;STUKS;7
+247;Macaronigroenten;macaroni-groenten.jpg;DOOS;1
+248;Gelatinebladen;geen_afbeelding.jpg;STUKS;17
+249;Amandelmeel(koopmans;geen_afbeelding.jpg;DOOS;17
+250;Bekertjes roomijs;geen_afbeelding.jpg;DOOS;20
+251;Omo vloeibaar rose dop;geen_afbeelding.jpg;FLES;13
+252;Vanille ijs (oke);geen_afbeelding.jpg;PAK;20
+253;Rosekoek met smarties;geen_afbeelding.jpg;STUKS;14
+254;Radler 0.0;geen_afbeelding.jpg;STUKS;10
+255;7up;geen_afbeelding.jpg;FLES;10
+256;Aardappelbolletjes;aardappelbolletjes.jpg;ZAK;1
+257;Wc eend;geen_afbeelding.jpg;FLES;13
+258;Pedaalemmerzakken;geen_afbeelding.jpg;STUKS;20
+259;Pedaalemmerzak 20 ltr;geen_afbeelding.jpg;STUKS;20
+260;Rosé bier;geen_afbeelding.jpg;FLES;10
+261;Muffin vormpjes;geen_afbeelding.jpg;STUKS;20
+262;Varkenshaas;varkenshaas.jpg;GRAM;6
+263;Mango;mango.jpg;POT_GROOT;3
+264;Erwtensoep klein;erwtensoep-klein.jpg;BLIK_KLEIN;21
+265;Ijsblokzakjes;geen_afbeelding.jpg;DOOS;19
+266;Lijnzaad( zonnatura;geen_afbeelding.jpg;ZAK;17
+267;Agf afvalzk;geen_afbeelding.jpg;STUKS;20
+268;Thee winterglow;geen_afbeelding.jpg;DOOS;16
+269;Ongezouten pindas;geen_afbeelding.jpg;ZAK;12
+270;Ongezouten cashew;geen_afbeelding.jpg;ZAK;12
+271;Pecannootjes;geen_afbeelding.jpg;ZAK;12
+272;Koffiepads dark;geen_afbeelding.jpg;ZAK;16
+273;Tomatencreme soep;geen_afbeelding.jpg;BLIK_KLEIN;21
+274;Teriakisaus;geen_afbeelding.jpg;FLES;8
+275;Teriakiwoksaus;geen_afbeelding.jpg;FLES;8

@@ -1,27 +1,41 @@
-package nl.aalten.boodschappenlijstje.domain;
+package nl.aalten.boodschappenlijst.product;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import nl.aalten.boodschappenlijst.domain.Eenheid;
+
+import org.springframework.lang.Nullable;
+
 @XmlRootElement
-public class Produkt {
+public class Product {
 
     private Long id;
     private String naam;
+    @Nullable
     private String merk;
     private String imageNaam = "geen_afbeelding.jpg";
-    private ProduktGroep produktGroep;
+    private Long productGroepId;
 
     @XmlTransient
-    @Enumerated(EnumType.STRING)
     private Eenheid eenheid;
 
-    public Produkt(long id, String naam, String merk, String imageNaam) {
+    public Product(long id, String naam, String imageNaam, Eenheid eenheid, Long productGroepId) {
         this.id = id;
         this.naam = naam;
         this.merk = merk;
         this.imageNaam = imageNaam;
+        this.eenheid = eenheid;
+        this.productGroepId = productGroepId;
+    }
+
+    public Product(long id, String naam, String merk, String imageNaam, Eenheid eenheid, Long productGroepId) {
+        this.id = id;
+        this.naam = naam;
+        this.merk = merk;
+        this.imageNaam = imageNaam;
+        this.eenheid = eenheid;
+        this.productGroepId = productGroepId;
     }
 
     public Long getId() {
@@ -56,14 +70,6 @@ public class Produkt {
         this.imageNaam = imageNaam;
     }
 
-    public ProduktGroep getProduktGroep() {
-        return produktGroep;
-    }
-
-    public void setProduktGroep(ProduktGroep produktGroep) {
-        this.produktGroep = produktGroep;
-    }
-
     public Eenheid getEenheid() {
         return eenheid;
     }
@@ -72,11 +78,11 @@ public class Produkt {
         this.eenheid = eenheid;
     }
 
-    public Boolean isOpBoodschappenLijst() {
-        return opBoodschappenLijst;
+    public Long getProductGroepId() {
+        return productGroepId;
     }
 
-    public void setOpBoodschappenLijst(Boolean opBoodschappenLijst) {
-        this.opBoodschappenLijst = opBoodschappenLijst;
+    public void setProductGroepId(Long productGroepId) {
+        this.productGroepId = productGroepId;
     }
 }

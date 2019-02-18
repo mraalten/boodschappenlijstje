@@ -22,7 +22,6 @@ export class ProductComponent implements OnInit {
     ) {
         this.subscription = this.boodschappenLijstService.itemListObserver.subscribe(() => {
             this.numberofItemsOnList = this.boodschappenLijstService.getNumberOfItemsOnList(this.product.id);
-            console.log('onInit product');
         });
     }
 
