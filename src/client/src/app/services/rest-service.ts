@@ -1,7 +1,6 @@
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
-import {Product} from "../product";
 
 @Injectable()
 export class RestService {
@@ -10,7 +9,7 @@ export class RestService {
         private http : HttpClient
     ) {}
 
-    get(url: string) : Observable<Product[]> {
+    get(url: string) : Observable<Object[]> {
         return this.http.get(this.host + url);
     }
 }

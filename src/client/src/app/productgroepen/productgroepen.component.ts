@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductGroep} from "../productgroep";
 import {ProductGroepenService} from "../services/productgroepen.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'productgroepen',
@@ -8,8 +9,8 @@ import {ProductGroepenService} from "../services/productgroepen.service";
   styleUrls: ['./productgroepen.component.css']
 })
 export class ProductgroepenComponent implements OnInit {
-
   productGroepen: ProductGroep[];
+  subscription: Subscription;
 
   constructor(
       private productGroepenService: ProductGroepenService
@@ -18,6 +19,11 @@ export class ProductgroepenComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productGroepen = this.productGroepenService.getProductGroepen();
+
+    this.subscription = this.productGroepenService.productGroepenObserver.subscribe(() => {
+      this.productGroepen = this.productGroepenService.getProductGroepen();
+    });
   }
 
 }

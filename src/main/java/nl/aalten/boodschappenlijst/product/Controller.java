@@ -6,25 +6,27 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import nl.aalten.boodschappenlijst.domain.ProductGroep;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class ProductenController {
+public class Controller {
 
     @Inject
-    private FileSystemProductenRepository repository;
+    private Repository repository;
 
     @RequestMapping(value = "/products", method = GET)
     public List<Product> getProducts() {
         return repository.getProducts();
     }
 
-    @RequestMapping("/hello")
-    public String hello() {
-        return "Hello world";
+    @RequestMapping(value = "/productgroups", method = GET)
+    public List<ProductGroep> getProductGroups() {
+        return repository.getProductGroups();
     }
 
 }

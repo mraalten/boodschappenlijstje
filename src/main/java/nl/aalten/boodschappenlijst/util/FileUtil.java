@@ -7,12 +7,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FileUtil {
+    private static final String SEPARATOR_CHAR = ";";
 
     private final String propertiesPath;
 
@@ -31,6 +34,12 @@ public class FileUtil {
         }
     }
 
+    public static <T> List<T> splitMapper(List<String> list, Function<String[], T> mapper) {
+        return list.stream()
+                .map(line -> line.split(SEPARATOR_CHAR))
+                .map(mapper)
+                .collect(Collectors.toList());
+    }
 }
 
 //    List<String> fileContent = new ArrayList<>(Files.readAllLines(FILE_PATH, StandardCharsets.UTF_8));
