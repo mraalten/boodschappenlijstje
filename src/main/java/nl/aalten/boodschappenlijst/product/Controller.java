@@ -2,10 +2,12 @@ package nl.aalten.boodschappenlijst.product;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import nl.aalten.boodschappenlijst.domain.Eenheid;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,6 +29,11 @@ public class Controller {
     @RequestMapping(value = "/productgroups", method = GET)
     public List<ProductGroep> getProductGroups() {
         return repository.getProductGroups();
+    }
+
+    @RequestMapping(value = "/eenheden", method = GET)
+    public List<Eenheid> getEenheden() {
+        return Arrays.asList(Eenheid.values());
     }
 
 }

@@ -30,7 +30,7 @@ export class ProductMuterenComponent implements OnInit {
       this.product = productenService.getProduct(this.selectedProductId);
       this.imageAvailable = this.product.imageNaam != 'geen_afbeelding.jpg';
       let imageType = this.imageAvailable ? 'own' : 'NA';
-      this.eenheden = Eenheid.allValues();
+      this.eenheden = this.productenService.getEenheden();
       let imageTypeGroup = new FormControl("", Validators.required);
       this.editForm = formBuilder.group({
          'productName' : [this.product.naam, Validators.required],
@@ -44,8 +44,9 @@ export class ProductMuterenComponent implements OnInit {
   onSubmit(form: any): void {
     if (this.editForm.valid) {
       let newProductName = this.editForm.get("productName").value;
-      let newEenheid = this.editForm.get("newEenheid").value;
-      this.productenService.editProduct(this.selectedProductId, newProductName, Eenheid.parseEnum(newEenheid));
+      let newEenheid = this.productenService.toEenheid(this.editForm.get("newEenheid").value);
+
+      this.productenService.editProduct(this.selectedProductId, newProductName, newEenheid);
       this.backToSelectedProductGroup();
     }
   }

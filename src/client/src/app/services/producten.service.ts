@@ -8,6 +8,7 @@ import {RestService} from "./rest-service";
 export class ProductenService {
     productenMap = new Map<number, Product>();
     productenObserver = new Subject();
+    eenheden = [];
 
     constructor(
         private restService : RestService
@@ -17,6 +18,10 @@ export class ProductenService {
                  this.toProductenMap(data);
                  this.productenObserver.next();
              });
+        this.restService.get('/eenheden')
+            .subscribe( (data: Eenheid[]) => {
+                this.eenheden = data;
+            });
     }
 
     private toProductenMap(products: Product[]) {
@@ -35,6 +40,10 @@ export class ProductenService {
     
     getProducten(): Product[] {
         return Array.from(this.productenMap.values());
+    }
+
+    getEenheden(): Eenheid[] {
+        return this.eenheden;
     }
 
     getProductenFor(productGroepId: number): Product[] {
@@ -70,4 +79,13 @@ export class ProductenService {
          this.productenObserver.next();
      }
 
+    toEenheid(eenheidAsString: String): Eenheid {
+        let eenheid;
+        this.eenheden.forEach( (value: Eenheid) => {
+            if (value.displayValue == eenheidAsString) {
+                eenheid = value;
+            }
+        });
+        return eenheid;
+    }
 }
