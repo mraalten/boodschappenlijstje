@@ -12,3 +12,7 @@
 .columns-side-by-side {
     display: inline-flex;
 }
+
+productgroep a {
+    text-decoration: none;
+}

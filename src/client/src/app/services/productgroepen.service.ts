@@ -27,7 +27,6 @@ export class ProductGroepenService {
     }
 
     private toProductGroepenMap(productGroups: ProductGroep[]) {
-        debugger;
         let productGroupIterator = productGroups.values();
         let productGroupResult = productGroupIterator.next();
         while (!productGroupResult.done) {

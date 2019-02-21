@@ -9,7 +9,7 @@
 9;Kaas;kaas.jpg;55;
 10;Frisdrank;frisdranken.jpg;100;
 11;Sappen;sappen.jpg;110;
-12;Chips;chips.jpg';120;
+12;Chips;chips.jpg;120;
 13;Was/schoonmaakmiddel;wasmiddel.png;80;
 14;Koek en snoep;koek-snoep.jpg;116;
 15;Verzorging;verzorging.jpg;85;

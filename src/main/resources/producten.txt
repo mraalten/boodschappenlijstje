@@ -161,7 +161,7 @@
 165;Citroenthee 1 kops;geen_afbeelding.jpg;DOOS;16
 166;Bosvruchtenthee 1 kops;geen_afbeelding.jpg;DOOS;16
 167;Koffiemelkcups;geen_afbeelding.jpg;PAK;16
-168;Mosterdrollade;mosterdrollade.jpg;STUKS;7
+168;Mosterdrollade;mosterrollade.jpg;STUKS;7
 169;Dubbelfris perzik +;geen_afbeelding.jpg;PAK;11
 170;Optimel Aardbei;optimel-aardbei.png;LITER;4
 171;Dextro Energy Classic;geen_afbeelding.jpg;PAK;14
