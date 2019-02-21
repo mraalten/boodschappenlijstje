@@ -1,13 +1,8 @@
 package nl.aalten.boodschappenlijst.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement
+@JsonFormat(shape= JsonFormat.Shape.OBJECT)
 public enum Eenheid {
     KILO(1L, "kilo", 1, 1),
     GRAM(2L, "gr.", 300, 100),
@@ -24,62 +19,31 @@ public enum Eenheid {
     DOOS(13L, "ds.", 1, 1);
 
     private Long id;
-    private String omschrijving;
-    private Integer defaultHoeveelheid;
-    private Integer plusMinHoeveelheid;
+    private String displayValue;
+    private Integer defaultQuantity;
+    private Integer plusQuantity;
 
 
-    private Eenheid(Long id, String omschrijving, Integer defaultHoeveelheid,  Integer plusMinHoeveelheid) {
+    private Eenheid(Long id, String displayValue, Integer defaultQuantity,  Integer plusQuantity) {
         this.id = id;
-        this.omschrijving = omschrijving;
-        this.defaultHoeveelheid = defaultHoeveelheid;
-        this.plusMinHoeveelheid = plusMinHoeveelheid;
+        this.displayValue = displayValue;
+        this.defaultQuantity = defaultQuantity;
+        this.plusQuantity = plusQuantity;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getOmschrijving() {
-        return omschrijving;
+    public String getDisplayValue() {
+        return displayValue;
     }
 
-    public Integer getDefaultHoeveelheid() {
-        return defaultHoeveelheid;
+    public Integer getDefaultQuantity() {
+        return defaultQuantity;
     }
 
-    public Integer getPlusMinHoeveelheid() {
-        return plusMinHoeveelheid;
-    }
-
-    public static List<String> asSortedList() {
-        List<String> eenheden = new ArrayList();
-        for (Eenheid eenheid : Eenheid.values()) {
-            eenheden.add(eenheid.getOmschrijving());
-        }
-        Collections.sort(eenheden, new Comparator<String>() {
-            public int compare(String omschrijving1, String omschrijving2) {
-                return omschrijving1.compareTo(omschrijving2);
-            }
-        });
-        return eenheden;
-    }
-
-    public static Eenheid toEnum(Integer eenheidId) {
-        if (eenheidId != null) {
-            for (Eenheid eenheid : values()) {
-                if (eenheid.getId().intValue() == eenheidId) {
-                    return eenheid;
-                }
-            }
-        }
-        return null;
-    }
-
-    public static Eenheid toEnum(String eenheid) {
-        if (eenheid != null) {
-            return Eenheid.valueOf(eenheid);
-        }
-        return null;
+    public Integer getPlusQuantity() {
+        return plusQuantity;
     }
 }
