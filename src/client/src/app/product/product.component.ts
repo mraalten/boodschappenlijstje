@@ -26,7 +26,7 @@ export class ProductComponent implements OnInit {
     }
 
     productSelected(product: Product) {
-        this.boodschappenLijstService.addProduct(product);
+        this.boodschappenLijstService.addProductToList(product);
     }
 
     editProduct(product: Product) {

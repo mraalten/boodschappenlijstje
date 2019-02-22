@@ -6,6 +6,8 @@ import {RestService} from "./rest-service";
 
 @Injectable()
 export class ProductenService {
+    private GET_PRODUCT_URL: string = '/products';
+
     productenMap = new Map<number, Product>();
     productenObserver = new Subject();
     eenheden = [];
@@ -13,7 +15,7 @@ export class ProductenService {
     constructor(
         private restService : RestService
     ) {
-         this.restService.get('/products')
+         this.restService.get(this.GET_PRODUCT_URL)
              .subscribe( (data: Product[]) => {
                  this.toProductenMap(data);
                  this.productenObserver.next();

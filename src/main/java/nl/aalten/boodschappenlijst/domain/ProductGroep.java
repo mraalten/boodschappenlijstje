@@ -5,8 +5,6 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import nl.aalten.boodschappenlijst.product.Product;
-
 @XmlRootElement
 public class ProductGroep {
 

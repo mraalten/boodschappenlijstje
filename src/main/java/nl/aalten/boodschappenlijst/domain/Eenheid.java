@@ -1,6 +1,10 @@
 package nl.aalten.boodschappenlijst.domain;
 
+import java.util.Arrays;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonFormat(shape= JsonFormat.Shape.OBJECT)
 public enum Eenheid {
@@ -29,6 +33,14 @@ public enum Eenheid {
         this.displayValue = displayValue;
         this.defaultQuantity = defaultQuantity;
         this.plusQuantity = plusQuantity;
+    }
+
+    @JsonCreator
+    static Eenheid findValue(@JsonProperty("id") String id, @JsonProperty("code") String code) {
+        return Arrays.stream(values())
+            .filter(eenheid -> eenheid.id == Long.valueOf(id))
+            .findFirst()
+            .orElseThrow(() -> new IllegalStateException("No enum Eenheid found for value " + id));
     }
 
     public Long getId() {

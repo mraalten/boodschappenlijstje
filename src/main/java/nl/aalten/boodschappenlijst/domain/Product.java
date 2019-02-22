@@ -1,9 +1,7 @@
-package nl.aalten.boodschappenlijst.product;
+package nl.aalten.boodschappenlijst.domain;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-
-import nl.aalten.boodschappenlijst.domain.Eenheid;
 
 import org.springframework.lang.Nullable;
 
@@ -19,6 +17,12 @@ public class Product {
 
     @XmlTransient
     private Eenheid eenheid;
+
+    /**
+     * No-args constructor needed for jaxson the instantiate object
+     */
+    public Product() {
+    }
 
     public Product(long id, String naam, String imageNaam, Eenheid eenheid, Long productGroepId) {
         this.id = id;
@@ -36,6 +40,12 @@ public class Product {
         this.imageNaam = imageNaam;
         this.eenheid = eenheid;
         this.productGroepId = productGroepId;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "id=" + id + ", naam='" + naam + '\'' + ", merk='" + merk + '\'' + ", imageNaam='" + imageNaam + '\'' + ", productGroepId=" + productGroepId
+                + ", eenheid=" + eenheid + '}';
     }
 
     public Long getId() {

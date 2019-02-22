@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Eenheid;
+import nl.aalten.boodschappenlijst.domain.Product;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
 import nl.aalten.boodschappenlijst.util.FileUtil;
 
@@ -69,5 +71,12 @@ public class FileSystemRepository implements Repository {
                 Integer.valueOf(sortOrder)
         );
     }
+
+    @Override
+    public void updateItem(BoodschappenlijstItem boodschappenlijstItem) {
+        fileUtil.updateBoodschappenlijst(boodschappenlijstItem);
+        System.out.println(boodschappenlijstItem);
+    }
+
 
 }
