@@ -1,14 +1,16 @@
-package nl.aalten.boodschappenlijst.util;
+package nl.aalten.boodschappenlijst.storage.filesystem;
+
+import static java.nio.file.Files.readAllLines;
+import static java.nio.file.Files.write;
+import static java.util.stream.Collectors.toList;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 
@@ -27,38 +29,48 @@ public class FileUtil {
     }
 
     public List<String> readFile(String fileName) {
+        Path path = toFullPath(fileName);
         try {
-            Path path = toFullPath(fileName);
-            return new ArrayList<>(Files.readAllLines(path, StandardCharsets.UTF_8));
+            return new ArrayList<>(readAllLines(path, StandardCharsets.UTF_8));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static <T> List<T> splitMapper(List<String> list, Function<String[], T> mapper) {
-        return list.stream().map(line -> line.split(SEPARATOR_CHAR)).map(mapper).collect(Collectors.toList());
-    }
-
-    public void updateBoodschappenlijst(BoodschappenlijstItem item) {
+    public void updateBoodschappenlijstitem(BoodschappenlijstItem item) {
         String newLine = toUpdatedLine(item);
 
         List<String> currentList = readFile(FILE_NAME_BOODSCHAPPENLIJST);
         int indexForItem = findIndexForItem(item, currentList);
-        if (indexForItem >=0) {
+        if (itemOnList(indexForItem)) {
             currentList.set(indexForItem, newLine);
         } else {
             currentList.add(newLine);
         }
+        writeToFile(FILE_NAME_BOODSCHAPPENLIJST, currentList);
+    }
+
+    private boolean itemOnList(int indexForItem) {
+        return indexForItem >= 0;
+    }
+
+    private void writeToFile(String fileName, List<String> list) {
+        withExceptionHandling(() ->
+            write(toFullPath(fileName), list, StandardCharsets.UTF_8)
+        );
+    }
+
+    private void withExceptionHandling(IOSupplierWithExceptionHandling supplier) {
         try {
-            Files.write(toFullPath(FILE_NAME_BOODSCHAPPENLIJST), currentList, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        };
+            supplier.get();
+        } catch (IOException ioExc) {
+            throw new RuntimeException(ioExc);
+        }
     }
 
     private int findIndexForItem(BoodschappenlijstItem item, List<String> currentList) {
         for (int index = 0; index < currentList.size(); index++) {
-            if (currentList.get(index).startsWith(item.getId() + SEPARATOR_CHAR)) {
+            if (currentList.get(index).contains(SEPARATOR_CHAR + item.getProduct().getId() + SEPARATOR_CHAR)) {
                 return index;
             }
         }
@@ -80,4 +92,25 @@ public class FileUtil {
         return Paths.get(propertiesPath + "/" + fileName);
     }
 
+    public <T> List<T> splitAndConvert(List<String> list, Function<String[], T> mapper) {
+        return list.stream()
+                .map(this::split)
+                .map(mapper)
+                .collect(toList());
+    }
+
+    public String[] split(String line) {
+        return line.split(SEPARATOR_CHAR);
+    }
+
+    public void deleteBoodschappenlijstItem(Long itemId) {
+        List<String> boodschappenlijstItems = readFile(FILE_NAME_BOODSCHAPPENLIJST);
+        List<String> updatedList = new ArrayList<>();
+        for (String line : boodschappenlijstItems) {
+            if (!line.startsWith(itemId + SEPARATOR_CHAR)) {
+                updatedList.add(line);
+            }
+        }
+        writeToFile(FILE_NAME_BOODSCHAPPENLIJST, updatedList);
+    }
 }

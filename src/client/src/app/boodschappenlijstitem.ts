@@ -6,11 +6,13 @@ export class BoodschappenlijstItem {
     public aantal: number;
 
     constructor(
-        id: number, product: Product
+        id: number,
+        product: Product,
+        aantal: number
     ){
         this.id = id;
         this.product = product;
-        this.aantal = 1;
+        this.aantal = aantal;
     }
 
     increment() {

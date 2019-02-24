@@ -7,13 +7,21 @@ import {RestService} from "./rest-service";
 @Injectable()
 export class BoodschappenlijstService {
     private UPDATE_ITEM_URL: string = '/updateItem';
+    private DELETE_ITEM_URL: string = '/deleteItem';
+    private GET_BOODSCHAPPENLIJST_ITEMS_URL: string = '/getItems';
 
     itemMap = new Map<number, BoodschappenlijstItem>();
     itemListObserver = new Subject();
 
     constructor(
         private restService : RestService
-    ) {}
+    ) {
+        this.restService.get(this.GET_BOODSCHAPPENLIJST_ITEMS_URL)
+            .subscribe( (data: BoodschappenlijstItem[]) => {
+                this.toBoodschappenlijstMap(data);
+                this.itemListObserver.next();
+            });
+    }
 
     getBoodschappenLijstItems(): BoodschappenlijstItem[] {
         return Array.from(this.itemMap.values());
@@ -23,16 +31,11 @@ export class BoodschappenlijstService {
         if (this.itemMap.get(product.id)) {
             alert(product.naam + ' staat al op je lijstje. Gebruik + om het aantal te verhogen');
         } else {
-            let id = this.getNewId();
-            let boodschappenLijstItem = new BoodschappenlijstItem(id, product);
+            let boodschappenLijstItem = new BoodschappenlijstItem(product.id, product, 1);
             this.itemMap.set(product.id, boodschappenLijstItem);
             this.informSubscribers();
             this.save(boodschappenLijstItem);
         }
-    }
-
-    getNewId() : number {
-        return this.itemMap.size + 1;
     }
 
     private informSubscribers() {
@@ -56,9 +59,8 @@ export class BoodschappenlijstService {
     deleteFromList(itemId: number) {
         if (this.itemMap.has(itemId)) {
             this.itemMap.delete(itemId);
-            this.informSubscribers()
-
-            // TODO delete item from server
+            this.informSubscribers();
+            this.restService.post(this.DELETE_ITEM_URL, itemId);
         } else {
             alert('Het te verwijderen product staat niet (meer) op je lijstje');
         }
@@ -78,5 +80,15 @@ export class BoodschappenlijstService {
 
     private save(boodschappenLijstItem: BoodschappenlijstItem) {
         this.restService.post(this.UPDATE_ITEM_URL, boodschappenLijstItem);
+    }
+
+    private toBoodschappenlijstMap(items: BoodschappenlijstItem[]) {
+        let itemIterator = items.values();
+        let itemResult = itemIterator.next();
+        while (!itemResult.done) {
+            let item = itemResult.value;
+            this.itemMap.set(item.product.id, new BoodschappenlijstItem(item.id, item.product, item.aantal));
+            itemResult = itemIterator.next();
+        }
     }
 }

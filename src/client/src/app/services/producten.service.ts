@@ -15,7 +15,7 @@ export class ProductenService {
     constructor(
         private restService : RestService
     ) {
-         this.restService.get(this.GET_PRODUCT_URL)
+        this.restService.get(this.GET_PRODUCT_URL)
              .subscribe( (data: Product[]) => {
                  this.toProductenMap(data);
                  this.productenObserver.next();

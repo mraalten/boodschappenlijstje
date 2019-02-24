@@ -1,4 +1,4 @@
-package nl.aalten.boodschappenlijst.product;
+package nl.aalten.boodschappenlijst.storage;
 
 import java.util.List;
 
@@ -10,8 +10,14 @@ public interface Repository {
 
      List<Product> getProducts();
 
+     Product getProduct(Long productId);
+
      List<ProductGroep> getProductGroups();
 
      void updateItem(BoodschappenlijstItem boodschappenlijstItem);
+
+     void deleteItem(Long itemId);
+
+     List<BoodschappenlijstItem> getBoodschappenlijstItems();
 
 }

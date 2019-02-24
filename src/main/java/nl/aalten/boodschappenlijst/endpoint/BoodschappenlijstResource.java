@@ -1,4 +1,4 @@
-package nl.aalten.boodschappenlijst.product;
+package nl.aalten.boodschappenlijst.endpoint;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -12,6 +12,7 @@ import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Eenheid;
 import nl.aalten.boodschappenlijst.domain.Product;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
+import nl.aalten.boodschappenlijst.storage.Repository;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-public class Controller {
+public class BoodschappenlijstResource {
 
     @Inject
     private Repository repository;
@@ -45,4 +46,19 @@ public class Controller {
         repository.updateItem(boodschappenLijstItem);
     }
 
+    @RequestMapping(value = "/deleteItem", method = POST)
+    public void deleteBoodschappenlijstItem(@RequestBody Long itemId) {
+        repository.deleteItem(itemId);
+    }
+
+    @RequestMapping(value = "/getItems", method = GET)
+    public List<BoodschappenlijstItem> getBoodschappenlijstItems() {
+        return repository.getBoodschappenlijstItems();
+    }
+
+//    @RequestMapping(value = "/createPdf", method = GET)
+//    @Produces("application/pdf")
+//    public Response createPdf() {
+//
+//    }
 }
