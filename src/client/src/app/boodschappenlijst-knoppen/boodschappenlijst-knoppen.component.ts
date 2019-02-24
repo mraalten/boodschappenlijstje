@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BoodschappenlijstService} from "../services/boodschappenlijst.service";
 
 @Component({
   selector: 'boodschappenlijst-knoppen',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoodschappenlijstKnoppenComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      private boodschappenLijstService: BoodschappenlijstService
+  ) { }
+
+  clearList() : void {
+    if (confirm('Weet je zeker dat de boodschappenlijst leeg wilt maken ?')) {
+      this.boodschappenLijstService.clearList();
+    }
+  }
 
   ngOnInit() {
   }

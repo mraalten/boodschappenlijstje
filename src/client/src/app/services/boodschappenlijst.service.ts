@@ -8,8 +8,9 @@ import {RestService} from "./rest-service";
 export class BoodschappenlijstService {
     private UPDATE_ITEM_URL: string = '/updateItem';
     private DELETE_ITEM_URL: string = '/deleteItem';
-    private GET_BOODSCHAPPENLIJST_ITEMS_URL: string = '/getItems';
+    private CLEAR_LIST_URL: string  = '/clearList';
 
+    private GET_BOODSCHAPPENLIJST_ITEMS_URL: string = '/getItems';
     itemMap = new Map<number, BoodschappenlijstItem>();
     itemListObserver = new Subject();
 
@@ -90,5 +91,11 @@ export class BoodschappenlijstService {
             this.itemMap.set(item.product.id, new BoodschappenlijstItem(item.id, item.product, item.aantal));
             itemResult = itemIterator.next();
         }
+    }
+
+    clearList() {
+        this.itemMap = new Map<number, BoodschappenlijstItem>();
+        this.restService.post(this.CLEAR_LIST_URL, null);
+        this.informSubscribers();
     }
 }

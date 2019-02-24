@@ -2,6 +2,7 @@ package nl.aalten.boodschappenlijst.storage.filesystem;
 
 import static java.lang.String.format;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,6 +75,11 @@ public class FileSystemRepository implements Repository {
             .map(line -> fileUtil.split(line))
             .map(this::toBoodschappenlijstItem)
             .collect(Collectors.toList());
+    }
+
+    @Override
+    public void clearList() {
+        fileUtil.writeToFile(FILE_NAME_PRODUCT_BOODSCHAPPENLIJST, new ArrayList<>());
     }
 
     private BoodschappenlijstItem toBoodschappenlijstItem(String[] columns) {

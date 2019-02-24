@@ -20,4 +20,6 @@ public interface Repository {
 
      List<BoodschappenlijstItem> getBoodschappenlijstItems();
 
+     void clearList();
+
 }

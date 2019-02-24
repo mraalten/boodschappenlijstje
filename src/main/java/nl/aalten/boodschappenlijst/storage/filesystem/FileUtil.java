@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FileUtil {
     private static final String SEPARATOR_CHAR = ";";
-    private static final String FILE_NAME_BOODSCHAPPENLIJST = "boodschappenlijst.txt";
+    public static final String FILE_NAME_BOODSCHAPPENLIJST = "boodschappenlijst.txt";
 
     private final String propertiesPath;
 
@@ -54,7 +54,7 @@ public class FileUtil {
         return indexForItem >= 0;
     }
 
-    private void writeToFile(String fileName, List<String> list) {
+    public void writeToFile(String fileName, List<String> list) {
         withExceptionHandling(() ->
             write(toFullPath(fileName), list, StandardCharsets.UTF_8)
         );

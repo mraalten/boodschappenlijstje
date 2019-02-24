@@ -56,6 +56,10 @@ public class BoodschappenlijstResource {
         return repository.getBoodschappenlijstItems();
     }
 
+    @RequestMapping(value = "/clearList", method = POST)
+    public void clearList() {
+        repository.clearList();
+    }
 //    @RequestMapping(value = "/createPdf", method = GET)
 //    @Produces("application/pdf")
 //    public Response createPdf() {
