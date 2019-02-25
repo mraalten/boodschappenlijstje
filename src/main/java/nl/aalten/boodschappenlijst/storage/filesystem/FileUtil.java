@@ -70,7 +70,7 @@ public class FileUtil {
 
     private int findIndexForItem(BoodschappenlijstItem item, List<String> currentList) {
         for (int index = 0; index < currentList.size(); index++) {
-            if (currentList.get(index).contains(SEPARATOR_CHAR + item.getProduct().getId() + SEPARATOR_CHAR)) {
+            if (currentList.get(index).startsWith(item.getProduct().getId() + SEPARATOR_CHAR)) {
                 return index;
             }
         }

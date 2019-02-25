@@ -6,6 +6,9 @@ public class BoodschappenlijstItem {
     private Product product;
     private Integer aantal;
 
+    public BoodschappenlijstItem() {
+    }
+
     public BoodschappenlijstItem(Long id, Product product, Integer aantal) {
         this.id = id;
         this.product = product;

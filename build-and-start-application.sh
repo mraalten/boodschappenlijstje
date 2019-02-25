@@ -9,4 +9,4 @@ cd ../..
 mvn package
 
 echo Run Spring boot application
-java -jar target/boodschappenlijstje-1.0.0-SNAPSHOT.jar
+java -jar target/boodschappenlijstje-1.0.0-SNAPSHOT.jar --propertiesPath="/Users/raalten/Workspace/boodschappenlijstje/src/main/resources"
