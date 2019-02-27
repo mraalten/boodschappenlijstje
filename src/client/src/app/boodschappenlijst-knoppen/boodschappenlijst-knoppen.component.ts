@@ -18,6 +18,10 @@ export class BoodschappenlijstKnoppenComponent implements OnInit {
     }
   }
 
+  createPdf() : void {
+    this.boodschappenLijstService.createPdf();
+  }
+
   ngOnInit() {
   }
 

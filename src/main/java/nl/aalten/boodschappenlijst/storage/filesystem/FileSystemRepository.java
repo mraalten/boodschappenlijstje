@@ -47,7 +47,7 @@ public class FileSystemRepository implements Repository {
 
     public Product getProduct(Long productId) {
         return getProducts().stream()
-            .filter(product -> product.getId() == productId)
+            .filter(product -> product.getId().equals(productId))
             .findFirst()
             .orElseThrow(() -> new IllegalStateException(format("Product not found for #id %d", productId)));
     }

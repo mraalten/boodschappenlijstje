@@ -10,7 +10,9 @@ export class RestService {
     ) {}
 
     get(url: string) : Observable<Object[]> {
-        return this.http.get(this.toFullUrl(url));
+        let fullUrl = this.toFullUrl(url);
+        console.log("Execute GET for " + fullUrl);
+        return this.http.get(fullUrl);
     }
 
     post(url: string, data: any): void {

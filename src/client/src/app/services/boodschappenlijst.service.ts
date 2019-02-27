@@ -9,6 +9,7 @@ export class BoodschappenlijstService {
     private UPDATE_ITEM_URL: string = '/updateItem';
     private DELETE_ITEM_URL: string = '/deleteItem';
     private CLEAR_LIST_URL: string  = '/clearList';
+    private CREATE_PDF_URL: string  = '/createPdf';
 
     private GET_BOODSCHAPPENLIJST_ITEMS_URL: string = '/getItems';
     itemMap = new Map<number, BoodschappenlijstItem>();
@@ -97,5 +98,9 @@ export class BoodschappenlijstService {
         this.itemMap = new Map<number, BoodschappenlijstItem>();
         this.restService.post(this.CLEAR_LIST_URL, null);
         this.informSubscribers();
+    }
+
+    createPdf() {
+        this.restService.get(this.CREATE_PDF_URL);
     }
 }

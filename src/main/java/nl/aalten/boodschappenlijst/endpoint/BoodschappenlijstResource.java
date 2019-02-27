@@ -3,17 +3,23 @@ package nl.aalten.boodschappenlijst.endpoint;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.inject.Inject;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Eenheid;
 import nl.aalten.boodschappenlijst.domain.Product;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
+import nl.aalten.boodschappenlijst.output.PdfService;
 import nl.aalten.boodschappenlijst.storage.Repository;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +29,19 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class BoodschappenlijstResource {
 
-    @Inject
-    private Repository repository;
+    private final Repository repository;
+    private final PdfService pdfService;
+    private final String propertiesPath;
+
+    public BoodschappenlijstResource(
+            Repository repository,
+            PdfService pdfService,
+            @Value("${propertiesPath}") String propertiesPath
+    ) {
+        this.repository = repository;
+        this.pdfService = pdfService;
+        this.propertiesPath = propertiesPath;
+    }
 
     @RequestMapping(value = "/products", method = GET)
     public List<Product> getProducts() {
@@ -60,9 +77,25 @@ public class BoodschappenlijstResource {
     public void clearList() {
         repository.clearList();
     }
-//    @RequestMapping(value = "/createPdf", method = GET)
-//    @Produces("application/pdf")
-//    public Response createPdf() {
-//
-//    }
+
+    @RequestMapping(value = "/createPdf", method = GET)
+    @Produces("application/pdf")
+    public Response createPdf() {
+        List<BoodschappenlijstItem> items = repository.getBoodschappenlijstItems();
+        try {
+            pdfService.createPdf();
+            File file = new File(propertiesPath + "boodschappen.pdf");
+            FileInputStream fis = new FileInputStream(file);
+            return Response.ok(file , MediaType.APPLICATION_OCTET_STREAM)
+                    .header("Content-Disposition",
+                            "attachment; filename=boodschappen.pdf")
+                    .build();
+//                    .type("application/pdf")
+//                    .header("Content-Disposition", "filename=boodschappen.pdf")
+//                    .build();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
