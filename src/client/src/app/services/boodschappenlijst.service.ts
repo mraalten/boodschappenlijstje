@@ -100,7 +100,12 @@ export class BoodschappenlijstService {
         this.informSubscribers();
     }
 
-    createPdf() {
-        this.restService.get(this.CREATE_PDF_URL);
+    createPdf(): any {
+        return this.restService.getPdf(this.CREATE_PDF_URL)
+            .map(result => result);
+    }
+
+    hasItems() {
+        return this.itemMap.size > 0;
     }
 }

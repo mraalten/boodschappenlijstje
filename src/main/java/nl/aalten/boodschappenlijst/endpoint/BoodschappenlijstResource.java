@@ -4,13 +4,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.File;
-import java.io.FileInputStream;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Eenheid;
@@ -20,13 +18,17 @@ import nl.aalten.boodschappenlijst.output.PdfService;
 import nl.aalten.boodschappenlijst.storage.Repository;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class BoodschappenlijstResource {
 
     private final Repository repository;
@@ -80,19 +82,19 @@ public class BoodschappenlijstResource {
 
     @RequestMapping(value = "/createPdf", method = GET)
     @Produces("application/pdf")
-    public Response createPdf() {
-        List<BoodschappenlijstItem> items = repository.getBoodschappenlijstItems();
+    public ResponseEntity<byte[]>  createPdf() {
         try {
             pdfService.createPdf();
             File file = new File(propertiesPath + "boodschappen.pdf");
-            FileInputStream fis = new FileInputStream(file);
-            return Response.ok(file , MediaType.APPLICATION_OCTET_STREAM)
-                    .header("Content-Disposition",
-                            "attachment; filename=boodschappen.pdf")
-                    .build();
-//                    .type("application/pdf")
-//                    .header("Content-Disposition", "filename=boodschappen.pdf")
-//                    .build();
+            byte[] pdfContents = Files.readAllBytes(file.toPath());
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.parseMediaType("application/pdf"));
+            String filename = "Boodschappenlijstje.pdf";
+            headers.setContentDispositionFormData(filename, filename);
+            headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+            ResponseEntity<byte[]> response = new ResponseEntity<>(
+                    pdfContents, headers, HttpStatus.OK);
+            return response;
         } catch (Exception e) {
             e.printStackTrace();
         }

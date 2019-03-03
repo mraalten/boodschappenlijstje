@@ -10,6 +10,7 @@
     text-align: center;
     width: 230px;
     height: 43px;
+    outline: none;
 }
 
 .toevoegen-produkt-button {
@@ -25,4 +26,5 @@
     width: 250px;
     float: right;
     height: 43px;
+    outline: none;
 }

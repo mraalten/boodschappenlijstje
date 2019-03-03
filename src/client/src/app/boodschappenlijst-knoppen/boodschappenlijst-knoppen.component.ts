@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BoodschappenlijstService} from "../services/boodschappenlijst.service";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'boodschappenlijst-knoppen',
@@ -19,7 +20,11 @@ export class BoodschappenlijstKnoppenComponent implements OnInit {
   }
 
   createPdf() : void {
-    this.boodschappenLijstService.createPdf();
+    if (this.boodschappenLijstService.hasItems()) {
+      window.open(environment.hostname + environment.downloadListUrl);
+    } else {
+      alert('Geen boodschappen aanwezig op lijstje');
+    }
   }
 
   ngOnInit() {
