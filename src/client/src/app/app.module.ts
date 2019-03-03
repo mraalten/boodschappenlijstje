@@ -23,8 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RestService} from "./services/rest-service";
 
 const routes : Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
-    { path: 'home', component: ProductgroepenComponent},
+    { path: '', component: ProductgroepenComponent},
     { path: 'products/:productGroepId', component: ProductenComponent},
     { path: 'editproduct/:productId', component: ProductMuterenComponent}
 ]

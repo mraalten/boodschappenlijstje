@@ -1,9 +1,10 @@
 <div class="content-block">
 
   <product-knoppen></product-knoppen>
-  <div *ngFor="let product of producten" style="display: inline-block">
-    <product [product]="product">
-    </product>
+  <div class="block-space">
+    <div *ngFor="let product of producten" style="display: inline-block">
+      <product [product]="product">
+      </product>
+    </div>
   </div>
-
 </div>
