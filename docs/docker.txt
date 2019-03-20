@@ -1,0 +1,28 @@
+Download latest Postgres Image:
+----------------------------------
+docker pull postgres
+
+Create directory for storing data on local machine
+---------------------------------------------------
+mkdir /Users/Aalten/postgres
+
+Start Postgres with mounting to local directory
+-------------------------------------------------
+docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v /Users/Aalten/postgres:/var/lib/postgresql/data postgres
+
+
+
+
+EMERA INSTRUCTIONS:
+================
+
+DOCKER IMAGES AND BUILD:
+
+- Create file Dockerfile
+- Build container from docker file ->
+  docker build -t aalten/emera-postgres:0.3 .
+- Start container:
+  docker run -d -p 5432:5432 aalten/emera-postgres:0.2
+
+When container does not start:
+  docker logs 792bfb165d9b801455646d9426752047afb8631bf404b33566a04c4901ab10eb    ->id van de container
