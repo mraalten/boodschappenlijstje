@@ -1,23 +1,25 @@
 package nl.aalten.boodschappenlijst.storage.filesystem.mapper;
 
-import nl.aalten.boodschappenlijst.domain.ProductGroep;
+import nl.aalten.boodschappenlijst.domain.Product;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProductGroupMapper extends LineMapper<ProductGroep> {
+public class FileSystemProductMapper extends LineMapper<Product> {
     private static final int ID         = 0;
     private static final int NAME       = 1;
     private static final int IMAGE_NAME = 2;
-    private static final int SORT_ORDER = 3;
+    private static final int EENHEID    = 3;
+    private static final int GROUP_ID   = 4;
 
     @Override
-    public ProductGroep mapLine(String[] columns) {
-        return new ProductGroep(
+    public Product mapLine(String[] columns) {
+        return new Product(
                 asLong(columns, ID),
                 asString(columns, NAME),
                 asString(columns, IMAGE_NAME),
-                asInteger(columns, SORT_ORDER)
+                asEenheid(columns, EENHEID),
+                asLong(columns, GROUP_ID)
         );
     }
 

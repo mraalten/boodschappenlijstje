@@ -4,6 +4,7 @@ import static java.lang.String.format;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -12,8 +13,8 @@ import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Product;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
 import nl.aalten.boodschappenlijst.storage.Repository;
-import nl.aalten.boodschappenlijst.storage.filesystem.mapper.ProductGroupMapper;
-import nl.aalten.boodschappenlijst.storage.filesystem.mapper.ProductMapper;
+import nl.aalten.boodschappenlijst.storage.filesystem.mapper.FileSystemProductGroupMapper;
+import nl.aalten.boodschappenlijst.storage.filesystem.mapper.FileSystemProductMapper;
 
 import org.springframework.stereotype.Component;
 
@@ -25,37 +26,36 @@ public class FileSystemRepository implements Repository {
     private static final String FILE_NAME_PRODUCT_BOODSCHAPPENLIJST = "boodschappenlijst.txt";
 
     private final FileUtil fileUtil;
-    private final ProductMapper productMapper;
-    private final ProductGroupMapper productGroupMapper;
+    private final FileSystemProductMapper fileSystemProductMapper;
+    private final FileSystemProductGroupMapper fileSystemProductGroupMapper;
 
     @Inject
     public FileSystemRepository(
             FileUtil fileUtil,
-            ProductMapper productMapper,
-            ProductGroupMapper productGroupMapper
+            FileSystemProductMapper fileSystemProductMapper,
+            FileSystemProductGroupMapper fileSystemProductGroupMapper
     ) {
         this.fileUtil = fileUtil;
-        this.productMapper = productMapper;
-        this.productGroupMapper = productGroupMapper;
+        this.fileSystemProductMapper = fileSystemProductMapper;
+        this.fileSystemProductGroupMapper = fileSystemProductGroupMapper;
     }
 
     @Override
     public List<Product> getProducts() {
         List<String> productLines = fileUtil.readFile(FILE_NAME_PRODUCTEN);
-        return fileUtil.splitAndConvert(productLines, productMapper::mapLine);
+        return fileUtil.splitAndConvert(productLines, fileSystemProductMapper::mapLine);
     }
 
-    public Product getProduct(Long productId) {
+    public Optional<Product> getProduct(Long productId) {
         return getProducts().stream()
             .filter(product -> product.getId().equals(productId))
-            .findFirst()
-            .orElseThrow(() -> new IllegalStateException(format("Product not found for #id %d", productId)));
+            .findFirst();
     }
 
     @Override
     public List<ProductGroep> getProductGroups() {
         List<String> productGroupLines = fileUtil.readFile(FILE_NAME_PRODUCT_GROUPS);
-        return fileUtil.splitAndConvert(productGroupLines, productGroupMapper::mapLine);
+        return fileUtil.splitAndConvert(productGroupLines, fileSystemProductGroupMapper::mapLine);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class FileSystemRepository implements Repository {
         Long itemId = Long.valueOf(columns[0]);
         Long productId = Long.valueOf(columns[1]);
         int aantal = Integer.valueOf(columns[2]);
-        Product product = getProduct(productId);
+        Product product = getProduct(productId).orElseThrow(() -> new IllegalStateException(format("Product with id %d not found.", productId)));
 
         return new BoodschappenlijstItem(itemId, product, aantal);
     }

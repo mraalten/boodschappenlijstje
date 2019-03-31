@@ -11,7 +11,7 @@ import javax.inject.Inject;
 
 import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
-import nl.aalten.boodschappenlijst.storage.Repository;
+import nl.aalten.boodschappenlijst.storage.filesystem.FileSystemRepository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -38,12 +38,12 @@ public class PdfService {
             { 36, 36, 296, 806 } , { 299, 36, 559, 806 }
     };
 
-    private final Repository repository;
+    private final FileSystemRepository repository;
     private final String fileName;
 
     @Inject
     public PdfService(
-            Repository repository,
+            FileSystemRepository repository,
             @Value("${propertiesPath}") String propertiesPath
     ) {
         this.repository = repository;

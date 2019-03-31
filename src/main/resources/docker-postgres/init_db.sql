@@ -15,6 +15,12 @@ create table boodschappenlijstje.producten (
        product_groep_id numeric
 );
 
+create table boodschappenlijstje.boodschappenlijst (
+       id        numeric,
+       productId numeric,
+       aantal    numeric
+);
+
 insert into boodschappenlijstje.productgroepen(id, naam, image_naam, sort_order) values (1, 'Groenten', 'groenten-fruit.jpg', 10);
 insert into boodschappenlijstje.productgroepen(id, naam, image_naam, sort_order) values (2, 'Fruit', 'fruit.jpg', 20);
 insert into boodschappenlijstje.productgroepen(id, naam, image_naam, sort_order) values (3, 'Potgroenten', 'potgroenten.jpg', 40);

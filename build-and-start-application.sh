@@ -1,6 +1,6 @@
 clear
 
-echo Starting Postgres database (by Docker)
+echo Starting Postgres database - by Docker
 docker run -d -p 5432:5432 aalten/emera-postgres:0.8
 
 echo Creating distributable front-end....
@@ -23,4 +23,4 @@ echo $current_time
 
 echo Run Spring boot application
 
-java -jar target/boodschappenlijstje-$VERSION.jar --propertiesPath="/Users/Aalten/Documents/Workspace/boodschappenlijstje/src/main/resources"
+#java -jar target/boodschappenlijstje-$VERSION.jar --propertiesPath="/Users/Aalten/Documents/Workspace/boodschappenlijstje/src/main/resources"

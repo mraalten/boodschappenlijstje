@@ -15,7 +15,7 @@ import nl.aalten.boodschappenlijst.domain.Eenheid;
 import nl.aalten.boodschappenlijst.domain.Product;
 import nl.aalten.boodschappenlijst.domain.ProductGroep;
 import nl.aalten.boodschappenlijst.output.PdfService;
-import nl.aalten.boodschappenlijst.storage.Repository;
+import nl.aalten.boodschappenlijst.storage.postgres.PostgresRepository;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -31,28 +31,29 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class BoodschappenlijstResource {
 
-    private final Repository repository;
+//    private final FileSystemRepository fileSystemRepository;
+    private final PostgresRepository postgresRepository;
     private final PdfService pdfService;
     private final String propertiesPath;
 
     public BoodschappenlijstResource(
-            Repository repository,
+            PostgresRepository postgresRepository,
             PdfService pdfService,
             @Value("${propertiesPath}") String propertiesPath
     ) {
-        this.repository = repository;
+        this.postgresRepository = postgresRepository;
         this.pdfService = pdfService;
         this.propertiesPath = propertiesPath;
     }
 
     @RequestMapping(value = "/products", method = GET)
     public List<Product> getProducts() {
-        return repository.getProducts();
+        return postgresRepository.getProducts();
     }
 
     @RequestMapping(value = "/productgroups", method = GET)
     public List<ProductGroep> getProductGroups() {
-        return repository.getProductGroups();
+        return postgresRepository.getProductGroups();
     }
 
     @RequestMapping(value = "/eenheden", method = GET)
@@ -62,22 +63,22 @@ public class BoodschappenlijstResource {
 
     @RequestMapping(value = "/updateItem", method = POST)
     public void updateBoodschappenlijstItem(@RequestBody BoodschappenlijstItem boodschappenLijstItem) {
-        repository.updateItem(boodschappenLijstItem);
+        postgresRepository.updateItem(boodschappenLijstItem);
     }
 
     @RequestMapping(value = "/deleteItem", method = POST)
     public void deleteBoodschappenlijstItem(@RequestBody Long itemId) {
-        repository.deleteItem(itemId);
+        postgresRepository.deleteItem(itemId);
     }
 
     @RequestMapping(value = "/getItems", method = GET)
     public List<BoodschappenlijstItem> getBoodschappenlijstItems() {
-        return repository.getBoodschappenlijstItems();
+        return postgresRepository.getBoodschappenlijstItems();
     }
 
     @RequestMapping(value = "/clearList", method = POST)
     public void clearList() {
-        repository.clearList();
+        postgresRepository.clearList();
     }
 
     @RequestMapping(value = "/createPdf", method = GET)

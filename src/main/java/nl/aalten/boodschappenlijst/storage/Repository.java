@@ -1,6 +1,7 @@
 package nl.aalten.boodschappenlijst.storage;
 
 import java.util.List;
+import java.util.Optional;
 
 import nl.aalten.boodschappenlijst.domain.BoodschappenlijstItem;
 import nl.aalten.boodschappenlijst.domain.Product;
@@ -10,7 +11,7 @@ public interface Repository {
 
      List<Product> getProducts();
 
-     Product getProduct(Long productId);
+     Optional<Product> getProduct(Long productId);
 
      List<ProductGroep> getProductGroups();
 
