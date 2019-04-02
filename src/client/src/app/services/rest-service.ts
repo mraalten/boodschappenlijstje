@@ -6,7 +6,6 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class RestService {
-    private host = 'http://localhost:8082';
     constructor(
         private http : HttpClient
     ) {}

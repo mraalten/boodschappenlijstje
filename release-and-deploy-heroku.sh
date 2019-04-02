@@ -1,6 +1,6 @@
 clear
 
-DEFAULT_VERSION="1.0.0-SNAPSHOT"
+DEFAULT_VERSION="1.0.4-SNAPSHOT"
 read -p "Enter version: [$DEFAULT_VERSION] " VERSION
 VERSION="${VERSION:-$DEFAULT_VERSION}"
 
@@ -14,4 +14,7 @@ echo Build executable Spring Boot jar file
 cd ../..
 mvn package
 
-heroku deploy:jar target/boodschappenlijstje-$VERSION.jar --app boodschappen-lijstje --server.port=8082
+cp target/boodschappenlijstje-$VERSION.jar boodschappenlijstje-versions
+mv target/boodschappenlijstje-$VERSION.jar target/boodschappenlijstje.jar
+
+heroku deploy:jar target/boodschappenlijstje.jar --app boodschappen-lijstje

@@ -1,2 +1,2 @@
-web: java -jar target/boodschappenlijstje-1.0.4-SNAPSHOT.jar --server.port=$PORT
+web: java -jar target/boodschappenlijstje.jar --server.port=$PORT
 

@@ -1,6 +1,7 @@
 .list-item {
     border-bottom: 1px black dashed;
     height: 34px;
+    font-size: 13px;
 }
 
 .fixed-width {

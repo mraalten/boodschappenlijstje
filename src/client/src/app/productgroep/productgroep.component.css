@@ -12,5 +12,7 @@
     -webkit-box-pack:center;
     -webkit-box-align:center;
     height: 40px;
+    width: 130px;
+    font-size: 13px;
 }
 

@@ -6,7 +6,7 @@
     border-radius: 25px;
     background: #FCFCFC;
     padding: 20px;
-    width: 130px;
+    width: 120px;
     height: 140px;
 }
 
@@ -24,7 +24,7 @@
 
 .product-image {
     /*width:  86px;*/
-    height: 100px;
+    height: 85px;
 }
 
 .productgroep-item-text {
@@ -36,6 +36,8 @@
     -webkit-box-pack:center;
     -webkit-box-align:center;
     height: 40px;
+    width: 135px;
+    font-size: 13px;
 }
 
 .text-centered {

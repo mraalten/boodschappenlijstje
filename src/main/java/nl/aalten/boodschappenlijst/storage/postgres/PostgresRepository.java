@@ -44,14 +44,10 @@ public class PostgresRepository implements Repository {
 
     @Override
     public List<ProductGroep> getProductGroups() {
-        logger.info("Trying to retrieve product groups");
-        System.out.println("Trying to retrieve product groups");
         try {
             List<ProductGroep> productGroups = productGroupRepository.getProductGroups();
-            System.out.println("Retrieved product groups: " + productGroups.toString());
             return productGroups;
         } catch (Exception exc) {
-            System.out.println("Error retrieving product groups: " + exc);
             return Collections.emptyList();
         }
     }

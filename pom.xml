@@ -5,7 +5,7 @@
 
     <groupId>nl.aalten</groupId>
     <artifactId>boodschappenlijstje</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
     <name>Boodschappenlijstje Applicatie</name>
 
