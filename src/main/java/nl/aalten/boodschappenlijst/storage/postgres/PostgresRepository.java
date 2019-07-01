@@ -79,4 +79,14 @@ public class PostgresRepository implements Repository {
         boodschappenlijstRepository.clearList();
     }
 
+    @Override
+    public void saveProduct(Product product) {
+        productRepository.saveProduct(product);
+    }
+
+    @Override
+    public void deleteProduct(Long productId) {
+        productRepository.deleteProduct(productId);
+    }
+
 }

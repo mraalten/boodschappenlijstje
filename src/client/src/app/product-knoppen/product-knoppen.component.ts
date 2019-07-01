@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'product-knoppen',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-knoppen.component.css']
 })
 export class ProductKnoppenComponent implements OnInit {
+  @Input() selectedProductGroepId: number;
 
   constructor() { }
 

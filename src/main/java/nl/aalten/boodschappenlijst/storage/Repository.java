@@ -23,4 +23,7 @@ public interface Repository {
 
      void clearList();
 
+    void saveProduct(Product product);
+
+     void deleteProduct(Long itemId);
 }

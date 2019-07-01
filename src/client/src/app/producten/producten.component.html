@@ -1,6 +1,6 @@
 <div class="content-block">
 
-  <product-knoppen></product-knoppen>
+  <product-knoppen [selectedProductGroepId]="selectedProductGroepId"></product-knoppen>
   <div class="block-space">
     <div *ngFor="let product of producten" style="display: inline-block">
       <product [product]="product">

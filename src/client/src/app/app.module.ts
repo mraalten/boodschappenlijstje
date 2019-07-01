@@ -25,7 +25,8 @@ import {RestService} from "./services/rest-service";
 const routes : Routes = [
     { path: '', component: ProductgroepenComponent},
     { path: 'products/:productGroepId', component: ProductenComponent},
-    { path: 'editproduct/:productId', component: ProductMuterenComponent}
+    { path: 'editproduct/:productId', component: ProductMuterenComponent},
+    { path: 'addproduct/:productGroepId', component: ProductMuterenComponent}
 ]
 @NgModule({
   declarations: [

@@ -13,6 +13,7 @@ import {BoodschappenlijstService} from "../services/boodschappenlijst.service";
 })
 export class ProductMuterenComponent implements OnInit {
   selectedProductId: number;
+  selectedProductGroepId: number;
   product: Product;
   editForm: FormGroup;
   eenheden: Eenheid[];
@@ -27,26 +28,43 @@ export class ProductMuterenComponent implements OnInit {
 
   ) {
       route.params.subscribe(params => {this.selectedProductId = Number(params['productId'])});
-      this.product = productenService.getProduct(this.selectedProductId);
-      this.imageAvailable = this.product.imageNaam != 'geen_afbeelding.jpg';
-      let imageType = this.imageAvailable ? 'own' : 'NA';
+      route.params.subscribe(params => {this.selectedProductGroepId = Number(params['productGroepId'])});
       this.eenheden = this.productenService.getEenheden();
-      let imageTypeGroup = new FormControl("", Validators.required);
-      this.editForm = formBuilder.group({
-         'productName' : [this.product.naam, Validators.required],
-         'newEenheid'  : [this.product.eenheid.displayValue, Validators.required],
-         'imageName'  : [this.product.imageNaam, Validators.required],
-         'imageType'  : new FormControl(imageType),
+      if (this.selectedProductId) {
+          this.product = productenService.getProduct(this.selectedProductId);
+          this.imageAvailable = this.product.imageNaam != 'geen_afbeelding.jpg';
+          let imageType = this.imageAvailable ? 'own' : 'NA';
+          this.editForm = formBuilder.group({
+              'productName' : [this.product.naam, Validators.required],
+              'newEenheid'  : [this.product.eenheid.displayValue, Validators.required],
+              'imageName'  : [this.product.imageNaam, Validators.required],
+              'imageType'  : new FormControl(imageType)
+          });
+      } else {
+          this.imageAvailable = false;
+          let imageType = 'NA';
+          this.editForm = formBuilder.group({
+              'productName' : ["", Validators.required],
+              'newEenheid'  : ["", Validators.required],
+              'imageName'  : ["'geen_afbeelding.jpg'", Validators.required],
+              'imageType'  : new FormControl(imageType)
+          });
+      }
+      // let imageTypeGroup = new FormControl("", Validators.required);
 
-      });
   }
 
   onSubmit(form: any): void {
     if (this.editForm.valid) {
-      let newProductName = this.editForm.get("productName").value;
-      let newEenheid = this.productenService.toEenheid(this.editForm.get("newEenheid").value);
-
-      this.productenService.editProduct(this.selectedProductId, newProductName, newEenheid);
+        let newProductName = this.editForm.get("productName").value;
+        let newEenheid = this.productenService.toEenheid(this.editForm.get("newEenheid").value);
+        if (this.selectedProductId) {
+            // edit product
+            this.productenService.editProduct(this.selectedProductId, newProductName, newEenheid);
+        } else {
+            // add product
+            this.product = this.productenService.addNewProduct(this.selectedProductGroepId, newProductName, newEenheid);
+        }
       this.backToSelectedProductGroup();
     }
   }

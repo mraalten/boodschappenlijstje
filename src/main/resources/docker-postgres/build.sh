@@ -1,1 +1,1 @@
-docker build -t aalten/emera-postgres:0.8 .
+docker build -t aalten/emera-postgres:0.9 .

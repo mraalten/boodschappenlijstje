@@ -8,6 +8,8 @@ import {RestService} from "./rest-service";
 export class ProductenService {
     private GET_PRODUCT_URL: string = '/products';
     private GET_EENHEDEN_URL : string = '/eenheden';
+    private SAVE_PRODUCT_URL: string = '/saveProduct';
+    private DELETE_PRODUCT_URL: string = '/deleteProduct';
 
     productenMap = new Map<number, Product>();
     productenObserver = new Subject();
@@ -37,8 +39,24 @@ export class ProductenService {
         }
     }
 
-    addNewProduct(product: Product): void {
-        this.productenMap.set(product.id, product);
+    addNewProduct(productGroepId: number, productName: string, newEenheid: Eenheid): Product {
+        let productIterator = this.productenMap.values();
+        let productResult = productIterator.next();
+        let highestId = 0;
+        while (!productResult.done) {
+            let product = productResult.value;
+            if (product.id > highestId) {
+                highestId = product.id;
+            }
+            console.log(product.id);
+            productResult = productIterator.next();
+        }
+        highestId = Number(highestId) + 1;
+        console.log('new id: ' + highestId);
+        let newProduct = new Product(highestId, productName, 'geen_afbeelding.jpg', newEenheid, productGroepId);
+        this.productenMap.set(newProduct.id, newProduct);
+        this.save(newProduct);
+        return newProduct;
     }
     
     getProducten(): Product[] {
@@ -74,11 +92,13 @@ export class ProductenService {
               product.naam = newProductName;
               product.eenheid = newEenheid;
               this.productenMap.set(selectedProductId, product);
+              this.save(product);
          }
     }
 
      delete(productId: number) {
          this.productenMap.delete(productId);
+         this.deleteProduct(productId);
          this.productenObserver.next();
      }
 
@@ -90,5 +110,13 @@ export class ProductenService {
             }
         });
         return eenheid;
+    }
+
+    private save(newProduct: Product) {
+        this.restService.post(this.SAVE_PRODUCT_URL, newProduct);
+    }
+
+    private deleteProduct(productId: number) {
+        this.restService.post(this.DELETE_PRODUCT_URL, productId);
     }
 }

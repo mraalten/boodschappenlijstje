@@ -66,6 +66,16 @@ public class BoodschappenlijstResource {
         postgresRepository.updateItem(boodschappenLijstItem);
     }
 
+    @RequestMapping(value = "/saveProduct", method = POST)
+    public void addProduct(@RequestBody Product product) {
+        postgresRepository.saveProduct(product);
+    }
+
+    @RequestMapping(value = "/deleteProduct", method = POST)
+    public void deleteProduct(@RequestBody Long itemId) {
+        postgresRepository.deleteProduct(itemId);
+    }
+
     @RequestMapping(value = "/deleteItem", method = POST)
     public void deleteBoodschappenlijstItem(@RequestBody Long itemId) {
         postgresRepository.deleteItem(itemId);

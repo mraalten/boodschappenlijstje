@@ -82,6 +82,16 @@ public class FileSystemRepository implements Repository {
         fileUtil.writeToFile(FILE_NAME_PRODUCT_BOODSCHAPPENLIJST, new ArrayList<>());
     }
 
+    @Override
+    public void saveProduct(Product product) {
+        // not implemented
+    }
+
+    @Override
+    public void deleteProduct(Long itemId) {
+        // not implemented
+    }
+
     private BoodschappenlijstItem toBoodschappenlijstItem(String[] columns) {
         Long itemId = Long.valueOf(columns[0]);
         Long productId = Long.valueOf(columns[1]);
