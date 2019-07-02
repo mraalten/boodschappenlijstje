@@ -46,7 +46,7 @@ export class ProductMuterenComponent implements OnInit {
           this.editForm = formBuilder.group({
               'productName' : ["", Validators.required],
               'newEenheid'  : ["", Validators.required],
-              'imageName'  : ["'geen_afbeelding.jpg'", Validators.required],
+              'imageName'  : ["geen_afbeelding.jpg", Validators.required],
               'imageType'  : new FormControl(imageType)
           });
       }
@@ -70,7 +70,7 @@ export class ProductMuterenComponent implements OnInit {
   }
 
   cancelEditing() : void {
-      this.backToSelectedProductGroup();
+      this.router.navigate(['/products', this.selectedProductGroepId]);
   }
 
   deleteProduct() : void {

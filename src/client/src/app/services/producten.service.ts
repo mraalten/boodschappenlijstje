@@ -48,11 +48,9 @@ export class ProductenService {
             if (product.id > highestId) {
                 highestId = product.id;
             }
-            console.log(product.id);
             productResult = productIterator.next();
         }
         highestId = Number(highestId) + 1;
-        console.log('new id: ' + highestId);
         let newProduct = new Product(highestId, productName, 'geen_afbeelding.jpg', newEenheid, productGroepId);
         this.productenMap.set(newProduct.id, newProduct);
         this.save(newProduct);
