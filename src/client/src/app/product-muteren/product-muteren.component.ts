@@ -57,13 +57,14 @@ export class ProductMuterenComponent implements OnInit {
   onSubmit(form: any): void {
     if (this.editForm.valid) {
         let newProductName = this.editForm.get("productName").value;
+        let newImageName = this.editForm.get("imageName").value;
         let newEenheid = this.productenService.toEenheid(this.editForm.get("newEenheid").value);
         if (this.selectedProductId) {
             // edit product
-            this.productenService.editProduct(this.selectedProductId, newProductName, newEenheid);
+            this.productenService.editProduct(this.selectedProductId, newProductName, newImageName, newEenheid);
         } else {
             // add product
-            this.product = this.productenService.addNewProduct(this.selectedProductGroepId, newProductName, newEenheid);
+            this.product = this.productenService.addNewProduct(this.selectedProductGroepId, newProductName, newImageName, newEenheid);
         }
       this.backToSelectedProductGroup();
     }

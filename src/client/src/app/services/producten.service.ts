@@ -39,7 +39,7 @@ export class ProductenService {
         }
     }
 
-    addNewProduct(productGroepId: number, productName: string, newEenheid: Eenheid): Product {
+    addNewProduct(productGroepId: number, productName: string, imageName: string, newEenheid: Eenheid): Product {
         let productIterator = this.productenMap.values();
         let productResult = productIterator.next();
         let highestId = 0;
@@ -51,7 +51,7 @@ export class ProductenService {
             productResult = productIterator.next();
         }
         highestId = Number(highestId) + 1;
-        let newProduct = new Product(highestId, productName, 'geen_afbeelding.jpg', newEenheid, productGroepId);
+        let newProduct = new Product(highestId, productName, imageName, newEenheid, productGroepId);
         this.productenMap.set(newProduct.id, newProduct);
         this.save(newProduct);
         return newProduct;
@@ -84,11 +84,12 @@ export class ProductenService {
          return this.productenMap.get(selectedProductId);
     }
 
-    editProduct(selectedProductId: number, newProductName: string, newEenheid: Eenheid) {
+    editProduct(selectedProductId: number, newProductName: string, newImageName: string, newEenheid: Eenheid) {
          var product = this.getProduct(selectedProductId);
-         if (product.naam != newProductName || product.eenheid != newEenheid) {
+         if (product.naam != newProductName || product.eenheid != newEenheid || product.imageNaam != newImageName) {
               product.naam = newProductName;
               product.eenheid = newEenheid;
+              product.imageNaam = newImageName;
               this.productenMap.set(selectedProductId, product);
               this.save(product);
          }
