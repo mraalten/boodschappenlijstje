@@ -51,7 +51,7 @@
             <button class="edit-product-button" (click)="$event.preventDefault();cancelEditing()">Annuleren</button>
           </td>
           <td>
-            <button class="delete-product-button" (click)="$event.preventDefault(); deleteProduct();">Verwijder product</button>
+            <button *ngIf="this.canDelete" class="delete-product-button" (click)="$event.preventDefault(); deleteProduct();">Verwijder product</button>
           </td>
         </tr>
 

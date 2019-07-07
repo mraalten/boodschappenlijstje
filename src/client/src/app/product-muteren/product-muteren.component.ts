@@ -18,6 +18,7 @@ export class ProductMuterenComponent implements OnInit {
   editForm: FormGroup;
   eenheden: Eenheid[];
   imageAvailable: boolean;
+  canDelete = true;
 
   constructor(
       private route: ActivatedRoute,
@@ -32,6 +33,7 @@ export class ProductMuterenComponent implements OnInit {
       this.eenheden = this.productenService.getEenheden();
       if (this.selectedProductId) {
           this.product = productenService.getProduct(this.selectedProductId);
+          this.canDelete = true;
           this.imageAvailable = this.product.imageNaam != 'geen_afbeelding.jpg';
           let imageType = this.imageAvailable ? 'own' : 'NA';
           this.editForm = formBuilder.group({
@@ -42,6 +44,7 @@ export class ProductMuterenComponent implements OnInit {
           });
       } else {
           this.imageAvailable = false;
+          this.canDelete = false;
           let imageType = 'NA';
           this.editForm = formBuilder.group({
               'productName' : ["", Validators.required],

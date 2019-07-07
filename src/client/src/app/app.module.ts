@@ -21,12 +21,14 @@ import {ProductenService} from "./services/producten.service";
 import {ProductGroepenService} from "./services/productgroepen.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RestService} from "./services/rest-service";
+import { BeheerComponent } from './beheer/beheer.component';
 
 const routes : Routes = [
     { path: '', component: ProductgroepenComponent},
     { path: 'products/:productGroepId', component: ProductenComponent},
-    { path: 'editproduct/:productId', component: ProductMuterenComponent},
-    { path: 'addproduct/:productGroepId', component: ProductMuterenComponent}
+    { path: 'editproduct/:productId/:productGroepId', component: ProductMuterenComponent},
+    { path: 'addproduct/:productGroepId', component: ProductMuterenComponent},
+    { path: 'beheer', component: BeheerComponent}
 ]
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ const routes : Routes = [
     ProductComponent,
     ProductKnoppenComponent,
     ProductMuterenComponent,
+    BeheerComponent,
   ],
   imports: [
     BrowserModule,

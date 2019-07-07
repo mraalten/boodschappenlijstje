@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
     }
 
     editProduct(product: Product) {
-        this.router.navigate(['/editproduct', product.id]);
+        this.router.navigate(['/editproduct', product.id, product.productGroepId]);
     }
 
     ngOnInit(): void {

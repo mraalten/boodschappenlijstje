@@ -1,16 +1,16 @@
 server:
   port: 8082
 
-#spring:
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/boodschappenlijstje
-#    username: postgres
-#    password: postgres
-#    driver-class-name: org.postgresql.Driver
-
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    url: jdbc:postgresql://localhost:5432/boodschappenlijstje
+    username: postgres
+    password: postgres
     driver-class-name: org.postgresql.Driver
+
+#spring:
+#  datasource:
+#    url: ${JDBC_DATABASE_URL}
+#    username: ${JDBC_DATABASE_USERNAME}
+#    password: ${JDBC_DATABASE_PASSWORD}
+#    driver-class-name: org.postgresql.Driver
