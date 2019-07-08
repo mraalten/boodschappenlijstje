@@ -3,7 +3,7 @@
 
     <div>
       <div class="titel">
-        Wijzigen produkt <br>
+        {{mode}} produkt <br>
       </div>
       <table>
 
@@ -12,6 +12,17 @@
           <td>
               <input type="text" [formControl]="editForm.controls['productName']">
             <div *ngIf="!editForm.controls['productName'].valid" class="field-error">Ongeldige waarde</div>
+          </td>
+        </tr>
+
+        <tr class="row" *ngIf="this.canDelete">
+          <td>Produktgroep</td>
+          <td>
+            <select [formControl]="editForm.controls['productGroup']">
+              <option [value]="productgroep.id" *ngFor="let productgroep of productGroepen">
+                {{productgroep.naam}}
+              </option>
+            </select>
           </td>
         </tr>
 

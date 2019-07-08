@@ -84,10 +84,11 @@ export class ProductenService {
          return this.productenMap.get(selectedProductId);
     }
 
-    editProduct(selectedProductId: number, newProductName: string, newImageName: string, newEenheid: Eenheid) {
+    editProduct(selectedProductId: number, newProductName: string, newProductGroupId: number, newImageName: string, newEenheid: Eenheid) {
          var product = this.getProduct(selectedProductId);
-         if (product.naam != newProductName || product.eenheid != newEenheid || product.imageNaam != newImageName) {
+         if (product.naam != newProductName || product.productGroepId != newProductGroupId || product.eenheid != newEenheid || product.imageNaam != newImageName) {
               product.naam = newProductName;
+              product.productGroepId = newProductGroupId;
               product.eenheid = newEenheid;
               product.imageNaam = newImageName;
               this.productenMap.set(selectedProductId, product);

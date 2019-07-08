@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 public class ProductRepository {
     private static final String ALL_FIELDS = "select id, naam, image_naam, eenheid, product_groep_id from boodschappenlijstje.producten";
     private static final String INSERT_PRODUCT_SQL = "insert into boodschappenlijstje.producten (id, naam, image_naam, eenheid, product_groep_id) values(:id, :naam, :image_naam, :eenheid, :product_groep_id)";
-    private static final String UPDATE_PRODUCT_SQL = "update boodschappenlijstje.producten set naam = :naam, image_naam = :image_naam, eenheid = :eenheid where id = :id";
+    private static final String UPDATE_PRODUCT_SQL = "update boodschappenlijstje.producten set naam = :naam, image_naam = :image_naam, eenheid = :eenheid,  product_groep_id = :product_groep_id where id = :id";
     private static final String DELETE_PRODUCT_SQL = "delete from boodschappenlijstje.producten where id = :id";
 
     private static final String GET_PRODUCT_FOR_ID = ALL_FIELDS + " where id = :productId order by id";

@@ -22,6 +22,7 @@ import {ProductGroepenService} from "./services/productgroepen.service";
 import {HttpClientModule} from "@angular/common/http";
 import {RestService} from "./services/rest-service";
 import { BeheerComponent } from './beheer/beheer.component';
+import { ProductgroepKnoppenComponent } from './productgroep-knoppen/productgroep-knoppen.component';
 
 const routes : Routes = [
     { path: '', component: ProductgroepenComponent},
@@ -45,6 +46,7 @@ const routes : Routes = [
     ProductKnoppenComponent,
     ProductMuterenComponent,
     BeheerComponent,
+    ProductgroepKnoppenComponent,
   ],
   imports: [
     BrowserModule,

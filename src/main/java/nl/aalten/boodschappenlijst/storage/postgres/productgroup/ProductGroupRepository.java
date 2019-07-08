@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 public class ProductGroupRepository {
 
     private static final String ALL_FIELDS = "select id, naam, image_naam, sort_order";
+    private static final String ORDER_BY_SORT_ORDER = "order by sort_order";
 
     private final ProductGroupMapper productGroupMapper;
     private final NamedParameterJdbcOperations jdbcTemplate;
@@ -21,7 +22,7 @@ public class ProductGroupRepository {
     }
 
     public List<ProductGroep> getProductGroups() {
-        return jdbcTemplate.query(ALL_FIELDS + " from boodschappenlijstje.productgroepen", productGroupMapper);
+        return jdbcTemplate.query(ALL_FIELDS + " from boodschappenlijstje.productgroepen " + ORDER_BY_SORT_ORDER, productGroupMapper);
     }
 
 
