@@ -16,14 +16,14 @@ export class BoodschappenlijstItem {
     }
 
     increment() {
-        this.aantal = this.aantal + 1;
+        this.aantal = this.aantal + this.product.eenheid.plusQuantity;
     }
 
     decrement() {
         if (this.aantal < 2) {
             alert('Verwijder ' + this.product.naam + ' door de Prullenmand voor het artikel te gebruiken.');
         } else {
-            this.aantal = this.aantal - 1;
+            this.aantal = this.aantal - this.product.eenheid.plusQuantity;
         }
     }
 

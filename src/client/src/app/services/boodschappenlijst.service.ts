@@ -33,7 +33,7 @@ export class BoodschappenlijstService {
         if (this.itemMap.get(product.id)) {
             alert(product.naam + ' staat al op je lijstje. Gebruik + om het aantal te verhogen');
         } else {
-            let boodschappenLijstItem = new BoodschappenlijstItem(product.id, product, 1);
+            let boodschappenLijstItem = new BoodschappenlijstItem(product.id, product, product.eenheid.defaultQuantity);
             this.itemMap.set(product.id, boodschappenLijstItem);
             this.informSubscribers();
             this.save(boodschappenLijstItem);
