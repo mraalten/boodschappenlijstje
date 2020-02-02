@@ -1,0 +1,6 @@
+/target/*
+/target/generated-sources/*
+
+# IDEs and editors
+/.idea/**
+/*.iml
