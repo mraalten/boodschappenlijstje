@@ -1,0 +1,55 @@
+APPLICATION SETUP:
+
+Application consists of :
+- Rest-backend
+- Angular front-end
+all in one project directory (main dir).
+
+Deployment is an executable Spring boot jar which connects to PostgreS database
+
+=====================================================================
+LOCAL DEVELOPMENT
+=====================================================================
+Setup:
+- front-end in Angular ->
+    1. cd to src/client
+    2. start: 'ng serve' (will call rest endpoints)
+- Database localhost
+    1. start docker container (build first if absent - see docker.txt)
+       use:  docker run -d -p 5432:5432 aalten/emera-postgres:0.2 <- change to correct version
+
+       connect to database (localhost) with :
+       host     : localhost
+       database : boodschappenlijstje
+       user     : postgres
+       password : postgres
+       port     : 5432
+
+- REST endpoints
+    1. Start BoodschappenlijstApplication (from IntelliJ)
+       make sure the run-config in IntelliJ has the folllowing:
+       Program Arguments     : --propertiesPath="/Users/aaltenmr/Documents/Aalten/Workspaces/boodschappenlijstje/src/main/resources/"
+       Environment variables : JDBC_DATABASE_URL=jdbc:postgresql://ec2-54-247-85-251.eu-west-1.compute.amazonaws.com:5432/d1h7lgq1pkv5en;JDBC_DATABASE_USERNAME=mgyfrnxsnrblsr;JDBC_DATABASE_PASSWORD=6002a5869051f085c6cfbe7cfaad292e6932a5a09e66433cfed6f6165d33b309
+
+If you want to run the Spring boot app locally as an executable jar (instead from IntelliJ):
+- run build-and-start-application.sh script from base-directory
+- when finished application is available at:
+    http://localhost:8083/index.html
+
+  Rest-endpoint available at:  ???
+
+-----------------------------------
+Change port-number for application
+-----------------------------------
+Change port number in application.yml
+
+=====================================================================
+REMOTE DEPLOYMENT
+=====================================================================
+When application is finished and must be deployed to remote (Heroku) environment:
+
+- execute the script release-and-deploy-heroku.sh.
+(supply new version and hit enter)
+
+Application will be build and via Maven uploaded to Heroku server.
+Use 'heroku logs --tail --app boodschappen-lijstje' to see the log

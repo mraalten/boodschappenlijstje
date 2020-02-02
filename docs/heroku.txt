@@ -2,7 +2,7 @@ Docs
 https://devcenter.heroku.com/articles/deploying-executable-jar-files
 
 Deploy
-heroku deploy:jar target/boodschappenlijstje-1.0.0-SNAPSHOT.jar --app boodschappen-lijstje
+heroku deploy:jar target/boodschappenlijstje-1.0.12-SNAPSHOT.jar --app boodschappen-lijstje
 
 Login:
 heroku login

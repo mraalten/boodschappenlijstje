@@ -1,6 +1,0 @@
-Applicatie draait als volgt:
-- REST endpoints (te starten door BoodschappenlijstApplication te starten in IntelliJ
-- docker DB lokaal starten -> let op: properties in yml-file moeten dan wel naar localhost wijzen (bij een release deze wel weer eerst terugzetten).
-  En na wijziging een mvn clean install draaien omdat de wijzigingen niet direct worden opgepakt
-  Docker container kun je starten door: docker run -d -p 5432:5432 aalten/emera-postgres:0.9   (versienr kan afwijken, zie laatste versie in build.sh in docker-postgres directory
-- starten front end : ga naar src/client directory en start ng serve

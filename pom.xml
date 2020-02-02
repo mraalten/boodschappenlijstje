@@ -5,7 +5,7 @@
 
     <groupId>nl.aalten</groupId>
     <artifactId>boodschappenlijstje</artifactId>
-    <version>1.0.14-SNAPSHOT</version>
+    <version>1.0.23-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Boodschappenlijstje Applicatie</name>
 
@@ -97,6 +97,17 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>2.0.16</version>
+                <configuration>
+                    <appName>boodschappen-lijstje</appName>
+                    <processTypes>
+                        <web>java -jar target/boodschappenlijstje-${project.version}.jar --server.port=$PORT</web>
+                    </processTypes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
